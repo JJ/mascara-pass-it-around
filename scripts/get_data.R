@@ -31,11 +31,11 @@ matches <- FreeMatches(Competitions = comp)
 #guardamos los partidos en los que jugó Noruega y le extraemos los eventos
 noruega <- matches %>%
 filter(home_team.country.name == "Norway" | away_team.country.name == "Norway")
-norw_clean <- free_allevents(MatchesDF = noruega) %>% all_clean()
-saveRDS(norw_clean, file = "../data/data_norway.Rds")
+norw_clean <- free_allevents(MatchesDF = noruega) %>% allclean()
+saveRDS(norw_clean, file = "data/data_norway.Rds")
 
 # lo mismo para Inglaterra
 inglaterra <- matches %>%
 filter(home_team.country.name == "England" | away_team.country.name == "England")
-eng_clean <- free_allevents(MatchesDF = inglaterra) %>% all_clean()
-saveRDS(eng_clean, file = "/tmp/data_england.Rds")
+eng_clean <- free_allevents(MatchesDF = inglaterra) %>% allclean()
+saveRDS(eng_clean, file = "data/data_england.Rds")
