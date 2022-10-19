@@ -12,20 +12,13 @@
 #install.packages("devtools", dependencies=TRUE)
 #devtools::install_github("statsbomb/SDMTools")
 #devtools::install_github("statsbomb/StatsBombR")
-# devtools::install_github("FCrSTATS/SBpitch") # to plot a pitch
 #install.packages("dplyr")
 #install.packages("tidyverse")
-#install.packages("igraph", dependencies=TRUE)
-# devtools::install_github("FCrSTATS/SBpitch") # to plot a pitch
-install.packages("fmsb")
+
 library(fmsb)
-library(SBpitch)
 library(StatsBombR)
-library(igraph)
 library(tidyverse)
 library(dplyr)
-
-comps <- FreeCompetitions()
 
 # nos quedamos con la UEFA Women's Euro 2022, que
 # tiene competition_id 53 y season_id 106
@@ -39,7 +32,7 @@ matches <- FreeMatches(Competitions = comp)
 noruega <- matches %>%
 filter(home_team.country.name == "Norway" | away_team.country.name == "Norway")
 norw_clean <- free_allevents(MatchesDF = noruega) %>% all_clean()
-saveRDS(norw_clean, file = "/tmp/data_norway.Rds")
+saveRDS(norw_clean, file = "../data/data_norway.Rds")
 
 # lo mismo para Inglaterra
 inglaterra <- matches %>%
