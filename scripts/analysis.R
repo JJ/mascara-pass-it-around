@@ -92,13 +92,11 @@ england_match_ordered <- sort(entropy_match_engl_simp$diversity)
 # análogo para noruega
 norway <- graph.data.frame(data.frame(passes_norw$player.name,
   passes_norw$pass.recipient.name), directed = FALSE)
-png(filename = "img/plot_norw.png")
-plot(norway)
 norway_simplified <- norway
 E(norway_simplified)$weight <- 1
 norway_simplified <- simplify(norway_simplified,
 edge.attr.comb = list(weight = "sum"))
-dev.off()
+
 
 norway_simplified$diversity <- diversity(norway_simplified)
 png(filename = "img/plot_norw_simpl.png")
@@ -112,9 +110,6 @@ norway_total_ordered <- sort(norway_simplified$diversity)
 # calculamos entropía de norw para partido eng-norw
 entropy_match_norw <- graph.data.frame(data.frame(match_norw$player.name,
 match_norw$pass.recipient.name), directed = FALSE)
-png(filename = "img/entropy_match_norw.png")
-plot(entropy_match_norw)
-dev.off()
 entropy_match_norw_simp <- entropy_match_norw
 E(entropy_match_norw_simp)$weight <- 1
 entropy_match_norw_simp <- simplify(entropy_match_norw_simp,
