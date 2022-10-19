@@ -1,4 +1,4 @@
-# Pass it around
+# Pass it around [![Statbombs](img/statsbomb.png)](https://github.com/statbomb/open-data)
 
 Analyzing soccer using entropy, based on [Elena
 Merelo](https://github.com/ElenaMerelo/TFG). Forked under the GPL free license.
