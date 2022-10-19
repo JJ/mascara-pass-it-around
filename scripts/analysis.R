@@ -1,5 +1,3 @@
-library(ggplot2)
-library(StatsBombR)
 library(tidyverse)
 library(dplyr)
 
