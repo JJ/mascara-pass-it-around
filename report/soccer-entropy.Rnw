@@ -214,6 +214,7 @@ JJ Merelo\textsuperscript{1,\Yinyang},
 % Please keep the abstract below 300 words
 \section*{Abstract}
 
+Soccer is probably the most popular team sport in the world, so it is no wonder that trying to first understand what has happened in a match in an analytic way and then predict what could happen in the next match has been attempted for quite some time. There are several challenges in this endeavor: first, try to find a series of measures that are invariable through their different matches and, thus, define a team, which might or might not emerge from the (possibly invariant) behavior of specific players. 
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
