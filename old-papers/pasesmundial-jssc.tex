@@ -1,0 +1,690 @@
+\documentclass[final]{svjour3}
+%\usepackage{natbib,alifeconf}
+\usepackage[latin1]{inputenc}
+%\usepackage[pdftex]{graphicx}	% Inclusión de imágenes
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{graphicx, color,longtable,multirow,times,amsmath,url}
+\usepackage{setspace}
+
+%\newcommand{\tab}{\hspace{20mm}}
+
+\titlerunning{2010 FIFA World Cup champion analysis }
+\authorrunning{ C. Cotta et al. }
+
+\begin{document}
+%
+
+\title{A Network Analysis of the 2010 FIFA World Cup Champion Team Play}
+
+\author{Carlos Cotta \and Antonio M. Mora \and Juan J. Merelo \and Cecilia Merelo-Molina}
+\institute{C. Cotta \at
+Department of Computer Science, University of M\'alaga (Spain) \\\email{ccottap@lcc.uma.es}
+\and A.M. Mora \and J.J. Merelo \and C. Merelo-Molina
+\at
+Department of Architecture and Computer Technology, University of Granada (Spain) \\\email{\{amorag,jmerelo\}@geneura.ugr.es}
+}
+\maketitle              % typeset the title of the contribution
+
+\doublespacing
+
+\begin{abstract}
+  In this paper we analyze the network of passes among the players of the Spanish team during the last FIFA World Cup 2010, where they emerged as the champion, with the objective
+  of explaining the results obtained from the behavior at the complex
+  network level. The team is considered a network with players as
+  nodes and passes as (directed) edges. A temporal analysis of the
+  resulting passes network is also done, looking at the number of passes,
+  length of the chain of passes, and to network measures such as player centrality and clustering coefficient.
+  Results of the last three matches (the decisive ones)
+  indicate that the clustering coefficient of the pass network
+  remains high, indicating the elaborate style of the Spanish team. The effectiveness
+  of the opposing team in negating the Spanish game is reflected in the
+  change of several network measures over time, most importantly in drops of the
+  clustering coefficient and passing length/speed, as well as in their being able in
+  removing the most talented players from the central positions of the network.
+  Spain's ability to restore their combinative game and move the focus of the game to
+  offensive positions and talented players is shown to tilt the balance in favor of
+  the Spanish team.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\label{intro}
+
+The hypothesis that a complex network analysis can help to understand
+football matches has been present for some time now \cite{Passos2011170}. Several teams, formally
+or informally, have performed analyses of football matches from the
+point of view of the network of passes formed throughout the match. One
+starting point was in 2004, when a competition to predict the
+four best-classified teams in the EuroCup that was celebrated that
+year was held in the \emph{Redes} (Spanish word for ``network'') social-network mailing list (in Spanish). The results, which completely failed to predict the outcome, were published in \cite{redes}.
+
+The main problem with these predictions --besides the outcome which
+was completely wrong (not even the two finalists, Portugal and Greece,
+were included in any of them)-- was that they were looking at the static
+picture of the team as it emerged from the {\em previous} match. It is
+quite clear that football is a game of two teams, whose networks
+clash. While there must be some quantity or structural property reflecting the team's organization and playing style
+that is maintained from one game to
+the next, the other team will do its best to
+prevent that network to move information (namely, the football) from
+one part to other, resulting in a quite unpredictable result.
+
+On the other hand, the network does not have any kind of spatiotemporal information. A network might show what one would consider a perfect structure, well
+formed, with short distances from goalie to forward players, but if it
+plays out of place or simply in its own field it will not be able to
+obtain a good result. Furthermore, if the network develops quite
+slowly with a low number of passes and low precision (low
+transitivity), the result will not be good either. In both cases, the
+static structure, while meaningful and a good qualitative description
+of the overall game, is unable to reflect its dynamics.
+
+In this paper, spurred on by the victory of the Spanish selection in the
+2010 World Cup, we have performed a spatiotemporal analysis of the
+essential games that led to victory. In this analysis, we have looked
+at the temporal evolution of the number of passes, at the length of the
+chains of passes and its transitivity (thus taking into account the
+effect on the opponent of simple ball losses) and analyzed the team
+network (considering pitch zones) at a microscopic level by identifying the
+most central nodes. In this way, we take
+into account both the complex network structure (reflected in the
+power-law structure of the length of the number of passes and overall
+network structure \cite{mendes07statistics}) and the spatiotemporal nature of the game. In that
+sense, this paper is the first to do this kind of analysis (at the
+complex network level -- see also \cite{Brillinger07potential,hughes04notational}
+for related work), which
+can later be complemented with other kinds of static micro-, macro-, and
+meso-measurements of the same type.
+
+Since we are talking about sports here, and football which is claimed to
+be the king of all sports, in some cases we allow ourselves to get carried away by
+emotion and make some statements that are not purely scientific, but
+more in the spirit of our passion for the sport (and, even more so, for the
+team we are talking about). Even so, as the scientific claims we make are
+sufficiently supported by our data, we ask for some leniency from the
+reader for our language and context statements, which we feel do no
+harm to the scientific claims we make in this paper.
+
+The rest of the paper is structured as follows: next, we examine the
+state of the art in analyses of the outcome of football matches. Then,
+the methodology used to extract data from the match is presented. An
+overall examination of the matches
+played by the Spanish team
+is subsequently performed. We close the paper with some
+conclusions and guidelines for future work.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  STATE OF THE ART
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{State of the Art}
+\label{SotA}
+
+Despite the huge cultural and popular interest that football has,
+being arguably the most popular sport (or maybe spectacle) in the
+world, there have not been many scientific approaches to sport
+performance and prediction. This was true when \cite{onody2004complex}
+wrote their often-referenced paper in
+2004, and it is still true today.
+
+However, since then, several papers have tried to apply complex network
+analysis to the footballing world. The above-mentioned paper itself was
+seminal in its thoroughness: it analyzed the network of all Brazilian
+football players, and linked them if they had shared a team, and found
+that several metrics (number of teams per player, number of goals per
+player, number of games played) follow truncated power-laws\footnote{Two quantities $x,y$ are said to be related by a power-law if $y=f(x)\propto x^k$ for some constant $k$ \cite{simon55class}.} or
+exponential distributions. This power-law behavior present in football
+was, later on, confirmed by Yamamoto and Yokoyama, who performed an
+analysis quite similar to the one we complete in this paper, analyzing
+several teams playing in the 2006 FIFA World Cup \cite{10.1371/journal.pone.0029638}. Their analysis detected
+power laws in the passes network, with exponents around 3, and made a
+very interesting analysis of the temporal evolution of the competitive
+play by looking at the number of {\em triangles}, or transitive
+passes, among other things. Duch et al. \cite{10.1371/journal.pone.0010937}
+prove that flow centrality of the pass network can adequately qualify
+team and player performance; in this they coincide with the results
+obtained by Lee et al. \cite{futbol2005}, who show a moderate
+relationship between the flow/betweenness centralization of the whole
+team and the outcome, as well as a negative relationship between the
+out-degree centralization.
+
+However, there has been no attempt to relate any
+of those quantities to performance. Could the number of teams a player
+has played in be related to the number of goals? In general, the prediction of performance has concentrated on the
+hypothesis that a team has some kind of intrinsic fitness --see
+\cite{springerlink:10.1140/epjb/e2009-00024-8}-- the difference of which
+between teams affects the probability (not the certainty) of one
+beating the other. These studies have mainly concentrated on time
+series analysis \cite{heuer2010soccer} but not intra-game dynamics.
+
+Since the pass data for several world-class events (Euro Cup 2004, 2008 and World
+Cup 2006, 2010) were made available, one of the authors has been carrying out informal
+analysis on the team's networks and deducting from them some kind of
+qualitative prediction on the result of a match. However, this
+analysis has not been published, and even as differences between the
+network qualities of different teams were appreciated, it was
+difficult to relate them either to the team fitness or to the match
+outcome. The ARSf\'utbol team, based in Argentina, has carried out extensive
+analyses of world-class events as well as local low-level football
+teams \cite{bundio2009analisis}, concluding that the performance of a
+team is mainly related to the existence of a well-coordinated core of
+players (such as the players which are taken from FC Barcelona, in the Spanish
+national team or the set of players from Porto FC in the Portuguese
+selection). Even those post-hoc observations cannot be easily used for
+predicting performance.
+
+In this paper, we will look at the micro-dynamics of a football team,
+the Spanish selection during the last World Cup in which they
+emerged as champions, bringing happiness to millions of Spaniards all
+over the world. We will try to find out which quantities made the
+Spanish team excellent by focusing on quantitative analysis of its
+game-play. This will be used as the first step for a second leg of
+analysis which will focus on prediction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  DATA EXTRACTION METHODOLOGY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Data extraction}
+\label{data_extract}
+
+In order to collect the data for the analysis, an important issue was
+the fact that we intended to analyze the game play from a
+spatiotemporal perspective. The spatial dimension tries to capture the
+fact that a player can act in different parts of the pitch and his
+role (and therefore the way he performs and interacts with his
+teammates) may be different in each of these zones. For example, a
+certain midfielder can have a defensive role when the opposing team is
+attacking, and have the teammates in the last defensive line as
+preferred targets for a pass whenever he regains control of the
+ball. On the other hand, this very same player can adhere to a much
+more combinative play when in offensive positions, interacting more
+with wingers and other creative midfielders. To this end, the pitch
+has been divided into nine zones as depicted in Figure
+\ref{fig:field_model}: four zones correspond to defensive positions
+(own box, wingback lanes, and own midfield), a further four zones
+correspond to offensive positions (opponent's box and midfield and
+wingers' lanes), and the the very central zone of the pitch which
+plays an important role for both initiating static attacks and
+pressing the opponent in defense. For the purpose of this analysis,
+each player is figuratively divided into 9 different players depending
+on the pitch zone in which they touch the ball (of course, most
+players only visit a limited number of zones throughout any given
+game).
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[scale=0.45]{./imgs3/modelo_campo.png}
+\caption{Model of the football field for data extraction. Playing zones.
+\label{fig:field_model}}
+\end{center}
+\end{figure}
+
+As for the temporal perspective, our goal is to capture the fact that a
+football game can go through different phases in which a team can
+change its way of playing (e.g. the dominant team can become
+dominated even if just sporadically or the trainer may introduce
+tactical changes) or at least can change its effectiveness (e.g. a
+player that was nullified by an effective defense can resurface later
+on, when tiredness prevents the defenders keeping tight
+marks). To account for this, we also keep track of the minute in which
+each pass was made.
+
+Once the kind of data we needed was defined, data extraction was done
+by ourselves, reviewing the knock-out games played by Spain
+(contrarily to regular group games in which a team can speculate with
+a draw or even with a somehow minimal loss in order to qualify for the
+next phase, knock-out games imply a win-lose situation and therefore
+the playing style and tactics are effectively directed at winning the
+game without depending on external factors\footnote{Winning the game
+  must be interpreted here as progressing on to the next knock-out
+  stage rather than scoring more goals than the opponent. For
+  example, a team may decide to play very defensively in order to
+  reach the penalty shootout if they consider they will be outplayed
+  otherwise; be that as it may, this reflects a definite and valid style,
+  and is anyway not applicable to the games considered in which Spain
+  went all out to effectively win the game before penalty shootouts.}). These
+correspond to the games against Portugal (round of 16) (not analyzed in this
+paper), Paraguay (quarterfinals), Germany (semifinals) and the Netherlands
+(final). The raw data obtained from this visual inspection consists of
+a list of all passes in the match, with the format
+
+\centerline{$<$\emph{half}$>$ $<$\emph{minute}$>$ $<$\emph{player}$>$ $<$\emph{zone}$>$ $<$\emph{player'}$>$ $<$\emph{zone'}$>$}
+
+\noindent indicating which player passed to which player, in which
+minute, and in which pitch zones each of them were in. As mentioned
+before, each pair (\emph{player}, \emph{zone}) can be interpreted as a
+virtual player for the purposes of network construction. More
+precisely we consider a moving window of 15 minutes (which we believe
+is long enough to capture the state of the game at any given instant)
+and build a series of directed graphs $G_i(V,E_i)$ where $V=\{(p,z)\
+|\ p\in T,\ z\in\{1,\cdots,9\}\}$, $T$ is the set of actual players in
+the national team, and $(u\rightarrow v)\in E_i$ if, and only if,
+virtual player $u$ passed to virtual player $v$ within the $i$-th time
+window. Figure \ref{fig:example} shows an example of the networks obtained.
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/examplenetdeg.jpg}
+\caption{An example of the networks obtained, taken from the Germany-Spain match (15', 1st half). Each node is labeled with a pair $(p,z)$ where $p$ is the squad number of the player --see Appendix \ref{sec:app}-- and $z$ is the zone of the pitch. Only those nodes corresponding to players/zones intervening in the game during the particular time window considered are displayed. Node sizes depend on degree centrality and the different shades correspond to defense (zones $1-4$),  midfield (zone $5$) and attack (zones $6-9$).
+\label{fig:example}}
+\end{center}
+\end{figure}
+
+
+This data was extracted by visualizing the matches by the authors,
+which has been found to be an appropriate, and probably the only,
+method for gathering network data from a match \cite{karbowski11:video};
+data collection took approximately 4-5 times the duration of
+matches\footnote{This data is available upon request to the scientific community,
+  with the provision that this paper is referenced.}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  SPANISH TEAM ANALYSIS (DATA RESULTS)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Analyzing the Spanish Team}
+\label{spanish_team_analysis}
+
+The Spanish national team entered the World Cup 2010 as one of the
+favorites to win the trophy. While to some extent this was not a
+completely new situation from a local point of view (and even a
+scientific point of view: Spain hosted the World Cup in 1982, and New
+Scientist published an article proving why they should win due to home
+advantage \cite{dowie1982spain}), in this case this consideration was
+quite reasonable a priori, since Spain was the current incumbent in
+Europe after winning the Euro Cup in 2008 for the 2nd time in their history
+(the 1st time dating back to 1964 in the Euro Cup hosted precisely in
+Spain). This win at the European level (and even more precisely the
+win over Italy in penalty shootouts in the quarterfinals game) was seen by
+many as a turning point from the psychological point of view, finally
+breaking the ``curse of the QFs'' that had been inescapable for
+several other --very talented-- Spanish teams. On reflection, the
+current generation of players was probably the most perfectly suited
+to this purpose, since they had been surfing on a winning wave in the
+national team since junior stages (\'Iker Casillas, Xavi Hern\'andez
+and Carlos Marchena were members of the team that won the Under-20 World
+cup in 1999) and were also part of the last dominant cycles of Real
+Madrid CF and FC Barcelona at club level (holding numerous National, European and International trophies).
+
+The lack of this ``choking culture'' that had haunted preceding
+generations, and finally the discovery of a playing style that players
+felt their own (incidentally a style that departed by a long way from the
+traditional ``Spanish fury'' that had been the national team's
+trademark until this generation, and arguably a finding that was in part possible
+due to the unfortunate series of injuries of several players) led to
+the current success cycle of the team. While this style
+--informally termed ``tiki-taka'' \cite{berrone2011business} (apparently, an otherwise meaningless phrase
+that can be translated as ``touchy-touch'', but which actually is very close to Basque ``tipi tapa'' meaning {\em step by step}) by former coach of the Spanish national team Javier Clemente in a pejorative sense and later popularized by the late Andr\'es Montes, a famous TV commentator, in a more neutral sense-- is now considered a trademark by many in Spain, and is commonly associated with that used by
+FC Barcelona (a claim based on the number of players of this club in
+the national team), a deeper inspection indicates that there are
+definite stylistic differences not only between the national team and
+other clubs in Spain, but also between the Euro 2008 team and the
+World Cup 2010 team. The former had players such as Fernando Torres
+(then at Liverpool FC) or David Silva and David Villa (then at
+Valencia CF) at their highest performance level and played a much more
+direct, faster combinative football. The latter team had several of
+these players at a lower performance level, some key players in
+midfield or defense were obviously two years older, and other players
+more suited to passing play were incorporated. Indeed, while FC Barcelona players were a minority in the Euro 2008 team (just 3, outnumbered for example by the 4 players contributed by Valencia CF or Liverpool FC), they were more numerous in the World Cup 2010 team. The result was a slower
+playing pace in which the ball and players move rapidly, but in which
+the net advance is slow (yet steady). In the following we will analyze
+some of the characteristics of this style using the network information
+collected as indicated in Section \ref{data_extract}. In particular, we will pay attention to the following features:
+\begin{itemize}
+\item number of passes per minute: this provides an indication of the speed of the game.
+\item number of consecutive passes without losing the ball: this reflects the elaborateness of the offensive game of the Spanish team.
+\item clustering coefficient \cite{holland71transivity}: this measure is an indication of the extent to which players tend to cluster together when passing the ball. To compute this coefficient we symmetrize the network and compute the local clustering coefficient $\gamma_v$ for each node $v$ with more than two vertices as
+\[
+	\gamma_v=\frac{N_{v}}{\delta_{v}(\delta_{v}-1)/2}
+\]
+where $\delta_{v}$ is the degree of node $v$ and $N_v$ is the number of links between nodes $u,w$ connected to $v$. Subsequently, the clustering coefficient $\gamma_G$ of the network $G$ is
+\[
+	\gamma_G = \frac{\sum_{v\in V\setminus V^{(1)}}\gamma_v}{\left|V\setminus V^{(1)}\right|}
+\]
+i.e. the average clustering coefficient for all nodes with more than one neighbor -- see \cite{li04reshaping}.
+\item centrality: we analyze the network at a microscopic level trying to identify the most important nodes in two ways, by considering the number of passes (weighted degree centrality) and by considering the flow of the ball. Regarding this latter aspect, our analysis tries to identify which player (and in which pitch zone) is more likely to have the ball after a long sequence of passes. This is analogous to eigenvector centrality \cite{Bonacich72factoring} computed using the power iteration method, i.e. converting the adjacency matrix in a Markov matrix and iterating from an initial vector representing a uniform distribution among all players intervening in the game; this process provides the probability of reaching a certain player by following an arbitrarily long random walk in the graph.
+\end{itemize}
+For the convenience of the reader, we include in Table \ref{tab:matches} the final result and scorers of the matches considered.
+
+
+\begin{table}
+\caption{Matches analyzed in this work. For the sake of completeness we also include the final score and the player/minute in which goals were scored.}
+\label{tab:matches}
+\begin{tabular}{lll}
+\hline
+Match & Result & Scorer\\
+\hline
+Paraguay-Spain & $0-1$ & Villa (83')\\
+Germany-Spain  & $0-1$ & Puyol (73')\\
+Netherlands-Spain & $0-1$ & Iniesta (116')\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+% -------------------------------------------------------------------------
+
+\subsection{Quarter Final Match: Paraguay-Spain}
+\label{quarter}
+
+
+\begin{figure}[hpt!]
+\begin{center}
+%\vspace{-1cm}
+\includegraphics[width=\textwidth]{./imgs3/par-esp-longitud-jugadas.png}
+\includegraphics[width=\textwidth]{./imgs3/par-esp-pases.png}
+%\vspace{-5mm}
+\caption{Paraguay-Spain. Upper graphs -- Average number of consecutive passes. Lower graphs -- Passes per minute. In this figure and all subsequent ones, the white line is the mean and the shadowed area covers one standard error of the mean above and below the former. Data always corresponds to the Spanish national team.
+\label{fig:PvsS-avg_pass_length-pass_minute}}
+\end{center}
+\end{figure}
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/par-esp-cc-zonas.png}
+%\vspace{-10pt}
+\caption{Paraguay-Spain. Clustering coefficient (CR). The dotted line indicates the CR of a random network with the same number of players involved and the same number of links.
+\label{fig:PvsS-cluster_rate}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+Spain reached quarterfinals after winning 1-0 (a result that would
+repeat itself in all remaining games) against Portugal. While the
+result of that last game was tight (and whether Villa, the scorer of
+the only goal was in off side is open to some question), from a global
+point of view Spain was widely regarded as having dominated the game
+and deservedly progressing to the quarterfinals, the historically
+insurmountable barrier for the national team. The game was approached
+by Paraguay (a strong opponent, as demonstrated by their being
+runner-ups in the Copa Am\'erica 2011) from a tactical premise: to
+disrupt the flow of the ball among Spanish players. They succeeded in this for most of the game, with Spain hardly achieving more than 3-4
+consecutive passes (see Figure \ref{fig:PvsS-avg_pass_length-pass_minute}--left side graphs) and only attaining a moderate pace of about 6 passes per minute (see Figure \ref{fig:PvsS-avg_pass_length-pass_minute}--right side graphs). Although Spain eventually settled into its usual combinative game (see clustering coefficients in Figure \ref{fig:PvsS-cluster_rate}), the first half was very irregular for the team. In general, the clustering coefficient is not much larger than that of an Erd\H{o}s-R\'enyi (ER) random network \cite{ERmodel} of the same size and number of links, indicating that the interaction among players is not highly structured. No single player emerges as the most central (in terms of in-/out-degree) and the game takes place mostly in Spain's defensive zone (see Figure \ref{fig:PvsS-player_centrality}, as well as Figure \ref{fig:Par-Esp} depicting a snapshot of the passing network during the 1st half). Indeed, an analysis of eigenvector centrality indicates that Sergio Busquets was the most central player during most of the 1st half (see Figure \ref{fig:PvsS-player_centrality_eigen}). In other words, the structure of passes of the Spanish team was leading to the less creative midfielder dominatinge the circulation of the ball. This
+does not mean Spain was necessarily under attack, but that Paraguay's
+pressing avoided Spain's more creative midfielders being actively engaged in the game and settling the ball in offensive zones. The
+game's turning point took place when two penalty shots failed
+successively first by Paraguay and then by Spain (low valley shown in Figure
+\ref{fig:PvsS-avg_pass_length-pass_minute}--right graph), after which Paraguay lowered their defensive strength due to tiredness, and Spain could finally enter
+into longer sequences of passes, with Xavi Hern\'andez and Xabi Alonso
+emerging as the dominant players in the midfield.
+
+
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/par-esp-jugador-mas-pases-zonas.png}
+\vspace{-1cm}
+\caption{Paraguay-Spain. Zone-based player centrality based on number of passes.
+\label{fig:PvsS-player_centrality}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/red-par-esp.jpg}
+\vspace{-0.7cm}
+\caption{A snapshot of the passing network (15', 1st half) taken from the Paraguay-Spain match. Node sizes depend on degree centrality. Note the diminished role of creative midfielders such as Xavi (8) or Iniesta (6), as well as the important role of Busquets (16) in the midfield and Piqu\'e (3) in defensive positions.
+\label{fig:Par-Esp}}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\vspace{-0.7cm}
+\includegraphics[width=\textwidth]{./imgs3/par-esp-jugador-mas-eigen-zonas.png}
+\vspace{-0.7cm}
+\caption{Paraguay-Spain. Zone-based player centrality based on random walks.
+\label{fig:PvsS-player_centrality_eigen}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+\clearpage
+
+% -------------------------------------------------------------------------
+
+\subsection{Semi Final Match: Germany-Spain}
+\label{semi}
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/ger-esp-longitud-jugadas.png}
+\includegraphics[width=\textwidth]{./imgs3/ger-esp-pases.png}
+%\vspace{-10pt}
+\caption{Germany-Spain. Upper graphs -- Average number of consecutive passes. Lower graphs -- Passes per minute (right).
+\label{fig:GvsS-avg_pass_length-pass_minute}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/ger-esp-cc-zonas.png}
+%\vspace{-10pt}
+\caption{Germany-Spain. Clustering coefficient.
+\label{fig:GvsS-cluster_rate}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/ger-esp-jugador-mas-pases-zonas.png}
+\vspace{-1cm}
+\caption{Germany-Spain. Zone-based player centrality based on number of passes.
+\label{fig:GvsS-player_centrality}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+\begin{figure}[hpt!]
+\begin{center}
+%\vspace{-3cm}
+\includegraphics[width=\textwidth]{./imgs3/ger-esp-jugador-mas-eigen-zonas.png}
+%\vspace{-3cm}
+\caption{Germany-Spain. Zone-based player centrality based on random walks.
+\label{fig:GvsS-player_centrality_eigen}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+
+
+The victory over Paraguay in the quarterfinals meant Spain advanced for the first time in history to the semifinals\footnote{The previous best performance of Spain had been a 4th place in Brazil's World Cup 1950, an edition in which there was a small league among the top-four teams.}, and a general consensus that the team had fulfilled the expectations of the supporters. This meant that the semifinal was approached as a game in which there was nothing to lose (although it must be noted that the same could be said for Germany, who had presented a very young team and a new, less physical style, and were in a transitional year). Maybe due to this lack of pressure, Spain gave their best performance of the tournament.
+
+The game was thoroughly dominated by Spain, who managed to engage in a fast game (well above 6 passes per minute, the ceiling reached for the greatest part of the game against Paraguay, cf. Figures \ref{fig:PvsS-avg_pass_length-pass_minute}--right side graphs and \ref{fig:GvsS-avg_pass_length-pass_minute}--right side graphs) and more elaborated sequences of passes (roughly twice as many as against Paraguay, cf. Figures \ref{fig:PvsS-avg_pass_length-pass_minute}--left side graphs and \ref{fig:GvsS-avg_pass_length-pass_minute}--left side graphs). It is interesting to note that the clustering coefficient was rather stable (the drop near the end of the 2nd half corresponds to the final push exerted by Germany once they were 1 goal down) and similar to that reached against Paraguay but clearly higher than that of the ER network. This indicates the underlying passing pattern was maintained in both games but was more effective --i.e. resulted in longer sequences of passes-- against Germany. Note in this sense how such longer sequences of passes are correlated with shots at goal, in particular in successful teams \cite{hughes-franks:2005}. As shown in Figure \ref{fig:example}, the passing network looks more balanced and layered than against Paraguay at the beginning of the match, with a more important role of the most talented players in the midfield and a notable presence in offensive positions. One of the tactical surprises of the match was the inclusion in the starting eleven of Pedro Rodr\'{\i}guez as a false winger, playing in-between the German defense and midfield. As seen in the eigenvector centrality analysis (Figure \ref{fig:GvsS-player_centrality_eigen}), he was instrumental in the circulation of the ball during long phases of the match. Xabi Alonso and specially Xavi Hern\'andez during the 2nd half were the clear hubs of the game (Paraguay had partly succeeded in disabling these two players, hence the more disconnected game). Actually the 2nd half saw the ball parked deeply inside the German field (Figure \ref{fig:GvsS-player_centrality}--bottom, right), indicating a clear domination of the game: sequences of up to 24 passes took place before Spain's goal (which paradoxically was a header after a corner kick).
+
+
+
+
+%
+%% -------------------------------------------------------------------------
+%
+\subsection{Final Match: Netherlands-Spain}
+\label{final}
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=.95\textwidth]{./imgs3/ned-esp-longitud-jugadas.png}
+\includegraphics[width=.95\textwidth]{./imgs3/ned-esp-longitud-jugadas-et.png}
+\caption{Netherlands-Spain. Average number of consecutive passes in the match time (top) and in the extra time (bottom).
+\label{fig:HvsS-avg_pass_length}}
+\vspace{-1cm}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-pases.png}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-pases-et.png}
+%\vspace{-10pt}
+\caption{Netherlands-Spain. Passes per minute in the match time (top) and in the extra time (bottom).
+\label{fig:HvsS-pass_minute}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+
+The great final took place against the Netherlands, a very talented team that featured one of the best players of the season in the midfield (Wesley Sneijder, surprisingly left out of the Ballon d'Or contest in that year despite being instrumental in his team -- FC Internazionale Milano-- achieving the treble) and possibly the fastest and finest winger in the whole tournament (Arjen Robben). Indeed, the connection between these two players could have very well tipped the balance in favor of Netherlands had not \'{I}ker Casillas provided an outstanding performance. Despite the talent available on the pitch, the Dutch team engaged however in a very rough game, forever symbolized by Nigel de Jong's ominous tackle on Xabi Alonso's chest \cite{deJong}. To some extent the tactical objective was similar to that of Paraguay's --disrupt the smooth flow of the ball in the Spanish team--- yet the execution was much more questionable (and so was the condescending attitude of the referee towards it). The game settled for the most part into a very slow pace due to the number of interruptions (Figure \ref{fig:HvsS-pass_minute}), and sequences of passes were generally short, analogously to the game against Paraguay (Figure \ref{fig:HvsS-avg_pass_length}). Unlike the latter game, the Dutch team succeeded in disabling Xabi Alonso but the balance of the game followed a similar pattern in that the physical style of the Netherlands became less consistent as time passed. The midfield was eventually controlled by Xavi Hern\'andez (Figures \ref{fig:HvsS-player_centrality} and \ref{fig:HvsS-player_centrality_eigen}) and --despite two clear fast breaks by Robben mentioned before-- the ball advanced away from Spain's defensive zone. The average number of consecutive passes gained momentum at the end of the 2nd half and was rather stable during the 1st half of extra time. Not surprisingly, the pace of the game decreased steadily during the extra time (Figure \ref{fig:HvsS-pass_minute}--right side), due to both the exhaustion of the players and the team's strategy shifting to a safer mode of holding possession in order to avoid conceding a late goal and trying to exploit a more direct approach when possible. Indeed, the clustering coefficient during the 2nd part of the extra time is much lower than in remaining games (Figure \ref{fig:HvsS-cluster_rate}--bottom), which is consistent with a less structured development of the game and larger distances between team lines. The whole extra time witnessed the emergence of Cesc F\`abregas (Figures \ref{fig:HvsS-player_centrality-ET} and \ref{fig:HvsS-player_centrality-eigen-ET}), coming from the bench to dominate the midfield, eventually providing the assist that resulted in Andr\'es Iniesta's decisive goal.
+\vspace{-.5cm}
+
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-cc-zonas.png}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-cc-zonas-et.png}
+%\vspace{-10pt}
+\caption{Netherlands-Spain. Clustering coefficient in the match time (top) and in the extra time (bottom).
+\label{fig:HvsS-cluster_rate}}
+%\vspace{-10pt}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=.97\textwidth]{./imgs3/ned-esp-jugador-mas-pases-zonas.png}
+\caption{Netherlands-Spain. Zone-based player centrality based on number of passes.
+\label{fig:HvsS-player_centrality}}
+
+\end{center}
+\end{figure}
+
+\begin{figure}[hpt!]
+\begin{center}
+\vspace{-.7cm}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-jugador-mas-eigen-zonas.png}
+\vspace{-1cm}
+\caption{Netherlands-Spain. Zone-based player centrality based on random walks.
+\label{fig:HvsS-player_centrality_eigen}}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[hpt!]
+\begin{center}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-jugador-mas-pases-zonas-et.png}
+\vspace{-1cm}
+\caption{Netherlands-Spain. Zone-based player centrality in the extra
+  time based on number of passes.
+\label{fig:HvsS-player_centrality-ET}}
+\end{center}
+\end{figure}%
+
+\begin{figure}[hpt!]
+\begin{center}
+\vspace{-.7cm}
+\includegraphics[width=\textwidth]{./imgs3/ned-esp-jugador-mas-eigen-zonas-et.png}
+\vspace{-1cm}
+\caption{Netherlands-Spain. Zone-based player centrality in the extra
+  time based on random walks. \label{fig:HvsS-player_centrality-eigen-ET}}
+\end{center}
+\end{figure}
+\clearpage
+
+
+\section{Conclusions and Future Work}
+\label{conclusion}
+This paper has attempted to use some graph and network metrics
+to analyze the performance and playing style of the Spanish national
+football team in the FIFA World Cup 2010. When analyzed from a temporal
+perspective, global measures such as the number of consecutive passes
+or the number of passes per minute provide a measure of the success of
+the team in imposing its style (or alternatively the success of the
+opposing team in disrupting the style of the Spanish team). A deeper
+insight is obtained by observing the clustering coefficient which
+captures the combinative nature of the ``tiki-taka'' style, and hints that the
+passing network exhibits the small-world property. While prone to a kind of baroqueness in the sense that many passes are
+often made in a short distance (contributing to the Spanish team's having the highest percentage of completed passes in the tournament: 87\% \cite{datablog}) and might be expendable, it is evident
+that it has prime value as a defensive strategy, by depriving the
+opponent of ball possession, one of the factors that is determinant in
+the game's outcome \cite{lago2007determinants,bate1988football}. Even in
+the games in which the performance of the Spanish team has been deemed
+worse by analysts and the general public, this combinativeness imprint
+globally remains, with marked valleys in the aftermath of scoring a
+goal (and the subsequent push of the trailing team) and sporadically
+during the final, a special game in which emotions and passion often
+led to lower precision and less elaborated game-play.
+
+There is of course much work to be done. From a purely methodological
+point of view, it is of crucial importance to keep analyzing other
+network measures such as node and edge betweenness, which naturally
+capture the hubs and essential associations in the distribution of the
+ball (let us note en passant here as an example that the role of
+Sergio Busquets was initially much criticized by the press and a large
+part of the public due to his lower creativeness; however it is clear
+that he was instrumental in providing balance to the midfield;
+this balance should not be measured in terms of outstanding possession of the ball, a task for which more creative midfielders should be responsible, but more likely for his contribution to the robustness of the network). This can have not just an explanatory
+value, but also a predictive value in terms of identifying the weak
+points of the circuit that may be targeted by the opponent. From a more global perspective, it may be interesting to analyze whether there are other high-level properties of the network --e.g. scale-freedom-- preserved over time. In
+addition to these methodological issues, it will be very useful
+to deploy this kind of analysis on further data both at club level
+(e.g. to identify similarities and dissimilarities between team and
+player performance in their clubs and in the national team), and at
+the national team level such as in the upcoming Euro 2012 in Poland
+and Ukraine or --looking beyond-- the World Cup 2014 in Brazil.
+
+\section*{Acknowledgements}
+
+The authors wish to thank the reviewers for their useful comments and suggestions. This work has been supported in part by the CEI BioTIC GENIL (CEB09-0010) MICINN CEI Program (PYR-2010-13) project,
+the Andalusian Regional Government P08-TIC-03903, P08-TIC-03928, and TIC-6083
+projects, and MICINN projects TIN2008-05941 and TIN2011-28627-C04.
+
+
+\appendix
+\section{Appendix. Spain's Squad Numbers}
+\label{sec:app}
+
+
+\begin{table}[hpt!]
+\begin{tabular}{||ll|ll|ll||}
+\hline
+\hline
+\# &~~& Name &~~& Position&~~\\
+\hline
+1	&&\'Iker Casillas (C)	&&Goalkeeper&\\
+2	&&Ra\'ul Albiol	   && Defender&\\
+3	&&Gerard Piqu\'e	  &&  Defender&\\
+4	&&Carlos Marchena&&	Defender&\\
+5	&&Carles Puyol	  &&  Defender&\\
+6	&&Andr\'es Iniesta	&&Midfielder&\\
+7	&&David Villa	   && Forward&\\
+8	&&Xavi Hern\'andez	&&Midfielder&\\
+9	&&Fernando Torres&&	Forward&\\
+10	&&Cesc F\`abregas	&&    Midfielder&\\
+11	&&Joan Capdevila&&	Defender&\\
+12	&&V\'{\i}ctor Vald\'es	&&    Goalkeeper&\\
+13	&&Juan Mata	    &&    Forward&\\
+14	&&Xabi Alonso	  &&  Midfielder&\\
+15	&&Sergio Ramos	 &&   Defender&\\
+16	&&Sergio Busquets&&	Midfielder&\\
+17	&&\'Alvaro Arbeloa&&	Defender&\\
+18	&&Pedro Rodr\'{\i}guez&&	Forward&\\
+19	&&Fernando Llorente&&	Forward&\\
+20	&&Javi Mart\'{\i}nez	&&    Midfielder&\\
+21	&&David Silva	  &&  Midfielder&\\
+22	&&Jes\'us Navas	  &&  Forward&\\
+23	&&Jos\'e Manuel Reina&& 	Goalkeeper&\\
+\hline
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+
+\bibliographystyle{plain}
+\bibliography{additional,geneura,pases-mundial}
+
+\end{document}
