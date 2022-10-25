@@ -1,0 +1,77 @@
+DL
+N=23
+FORMAT = FULLMATRIX DIAGONAL PRESENT
+ROW LABELS:
+Petr_CECH
+Zdenek_GRYGERA
+Pavel_MAREŠ
+Tomáš_GALÁSEK
+René_BOLF
+Marek_JANKULOVSKI
+Vladimír_ŠMICER
+Karel_POBORSKÝ
+Jan_KOLLER
+Tomáš_ROSICKÝ
+Pavel_NEDVED
+Vratislav_LOKVENC
+Martin_JIRÁNEK
+Štepán_VACHOUŠEK
+Milan_BAROŠ
+Jaromír_BLAZEK
+Tomáš_HÜBSCHMAN
+Marek_HEINZ
+Roman_TÝCE
+Jaroslav_PLAŠIL
+Tomáš_UJFALUŠI
+David_ROZEHNAL
+Antonín_KINSKÝ
+COLUMN LABELS:
+Petr_CECH
+Zdenek_GRYGERA
+Pavel_MAREŠ
+Tomáš_GALÁSEK
+René_BOLF
+Marek_JANKULOVSKI
+Vladimír_ŠMICER
+Karel_POBORSKÝ
+Jan_KOLLER
+Tomáš_ROSICKÝ
+Pavel_NEDVED
+Vratislav_LOKVENC
+Martin_JIRÁNEK
+Štepán_VACHOUŠEK
+Milan_BAROŠ
+Jaromír_BLAZEK
+Tomáš_HÜBSCHMAN
+Marek_HEINZ
+Roman_TÝCE
+Jaroslav_PLAŠIL
+Tomáš_UJFALUŠI
+David_ROZEHNAL
+Antonín_KINSKÝ
+LEVEL LABELS:
+1
+DATA:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 3 0 2 0 0 0 0 0 0 4 4 1 0 0 0 6 2 8 0 2 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 2 0 1 1 1 1 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 5 2 0 0 2 0 0 0 4 0 1 1 1 2 4 1 0 0 1 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 2 3 1 0 0 1 0 0 0 5 3 3 2 3 1 0 6 1 0 2 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0

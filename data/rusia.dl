@@ -1,0 +1,53 @@
+DL N = 23 FORMAT = FULLMATRIX 
+
+LABELS: 
+
+Sergei_OVCHINNIKOV
+Vladislav_RADIMOV
+Dmitri_SYCHEV
+Aleksei_SMERTIN
+Andrei_KARIAKA
+Igor_SEMSHOV
+Marat_IZMAILOV
+Rolan_GUSEV
+Dmitri_BULYKIN
+Aleksandr_MOSTOVOI
+Aleksandr_KERZHAKOV
+Viacheslav_MALAFEEV
+Roman_SHARONOV
+Aleksandr_ANYUKOV
+Dmitri_ALENICHEV
+Vadim_EVSEEV
+Dmitri_SENNIKOV
+Dmitri_KIRICHENKO
+Vladimir_BYSTROV
+Dmitri_LOSKOV
+Aleksei_BUGAYEV
+Evgeni_ALDONIN
+Igor_AKINFEEV
+
+DATA: 
+
+0 2 0 2 0 0 0 0 10 0 0 0 1 0 2 4 1 0 0 0 0 0 0
+0 0 1 2 0 0 2 0 1 4 0 0 0 0 5 4 0 0 0 0 0 5 0
+0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 2 1 0 1 0 0 1 2 3 0 0 8 0 6 14 3 0 0 0 0 1 0
+0 1 0 0 0 0 0 0 0 1 0 0 0 0 2 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 0 0 0 0 2 1 0 0 0 0 4 0 5 0 0 0 0 6 0
+0 0 0 1 0 0 0 0 1 0 0 0 0 0 8 1 0 0 0 0 0 4 0
+0 0 0 0 0 0 3 2 0 2 0 0 0 0 2 2 2 0 0 0 0 2 0
+0 1 3 2 1 0 3 1 2 0 0 0 0 0 8 0 5 0 0 0 0 5 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 4 0 8 0 0 1 0 1 3 0 0 0 0 6 1 5 0 0 0 0 5 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 7 1 5 1 0 4 11 2 9 0 0 0 0 0 0 2 0 0 0 0 5 0
+3 1 2 3 1 0 0 6 3 1 0 0 6 0 0 0 1 0 0 0 0 4 0
+1 3 0 0 2 0 5 1 3 1 0 0 11 0 1 0 0 0 0 0 0 8 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 2 0 1 0 0 6 2 4 7 0 0 3 0 8 2 8 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0

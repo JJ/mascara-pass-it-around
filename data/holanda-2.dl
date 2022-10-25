@@ -1,0 +1,77 @@
+DL
+N=23
+FORMAT = FULLMATRIX DIAGONAL PRESENT
+ROW LABELS:
+Edwin_VAN_DER_SAR
+Michael_REIZIGER
+Jaap_STAM
+Wilfred_BOUMA
+Giovanni_VAN_BRONCKHORST
+Phillip_COCU
+Andy_VAN_DER_MEYDE
+Edgar_DAVIDS
+Patrick_KLUIVERT
+Ruud_VAN_NISTELROOIJ
+Rafael_VAN_DER_VAART
+Roy_MAKAAY
+Sander_WESTERVELD
+Wesley_SNEIJDER
+Frank_DE_BOER
+Marc_OVERMARS
+Pierre_VAN_HOOIJDONK
+John_HEITINGA
+Arjen_ROBBEN
+Clarence_SEEDORF
+Paul_BOSVELT
+Boudewijn_ZENDEN
+Ronald_WATERREUS
+COLUMN LABELS:
+Edwin_VAN_DER_SAR
+Michael_REIZIGER
+Jaap_STAM
+Wilfred_BOUMA
+Giovanni_VAN_BRONCKHORST
+Phillip_COCU
+Andy_VAN_DER_MEYDE
+Edgar_DAVIDS
+Patrick_KLUIVERT
+Ruud_VAN_NISTELROOIJ
+Rafael_VAN_DER_VAART
+Roy_MAKAAY
+Sander_WESTERVELD
+Wesley_SNEIJDER
+Frank_DE_BOER
+Marc_OVERMARS
+Pierre_VAN_HOOIJDONK
+John_HEITINGA
+Arjen_ROBBEN
+Clarence_SEEDORF
+Paul_BOSVELT
+Boudewijn_ZENDEN
+Ronald_WATERREUS
+LEVEL LABELS:
+1
+DATA:
+  0  0  6  7  0  6  1  1  0 10  0  0  0  0  0  0  0  2  0  2  1  0  0
+  2  0  0  0  2 16  0  2  0  2  0  1  0  2  2  0  0  0  2 13  0  0  0
+  6  0  0  5  2  5  1  1  0  1  0  0  0  0  0  0  0  1  0  1  2  0  0
+  4  0  1  0  5  5  0  2  0  2  0  0  0  0  0  0  0  2  1  1  1  0  0
+  2  1  2  0  0  5  0  3  0  2  1  0  0  0  0  0  0  2  0  3  0  0  0
+  3  0  7  9  4  0  2  2  0  4  1  0  0  0  0  0  0  2  0  7  1  0  0
+  1  0  1  0  0  2  0  1  0  2  0  0  0  0  0  0  0  3  1  2  1  0  0
+  1  2  2  2  4  2  2  0  0  5  1  0  0  0  0  0  0  2  7  3  1  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ 10  0  1  2  0  1  7  3  0  0  1  0  0  0  0  0  0  0  3  2  1  0  0
+  0  0  0  0  1  1  0  1  0  2  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  1  1  1  0  2  5  0  0  0  0  0  1  0  0  2  0  0  0  3  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  1  1  0  1  2  0  1  0  0  0  1  0  0  2  0  0  0  1  2  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  2  0  2  0  7  1  1  2  0  3  0  4  0  3  2  1  0  0  0  5  0  0  0
+  0  7  7  0  4 11  9  5  0  4  0  2  0  2  3  6  0  0 10  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0

@@ -1,0 +1,77 @@
+DL
+N=23
+FORMAT = FULLMATRIX DIAGONAL PRESENT
+ROW LABELS:
+Oliver_KAHN
+Andreas_HINKEL
+Arne_FRIEDRICH
+Christian_WÖRNS
+Jens_NOWOTNY
+Frank_BAUMANN
+Bastian_SCHWEINSTEIGER
+Dietmar_HAMANN
+Fredi_BOBIC
+Kevin_KURANYI
+Miroslav_KLOSE
+Jens_LEHMANN
+Michael_BALLACK
+Thomas_BRDARIC
+Sebastian_KEHL
+Jens_JEREMIES
+Christian_ZIEGE
+Fabian_ERNST
+Bernd_SCHNEIDER
+Lukas_PODOLSKI
+Philipp_LAHM
+Torsten_FRINGS
+Timo_HILDEBRAND
+COLUMN LABELS:
+Oliver_KAHN
+Andreas_HINKEL
+Arne_FRIEDRICH
+Christian_WÖRNS
+Jens_NOWOTNY
+Frank_BAUMANN
+Bastian_SCHWEINSTEIGER
+Dietmar_HAMANN
+Fredi_BOBIC
+Kevin_KURANYI
+Miroslav_KLOSE
+Jens_LEHMANN
+Michael_BALLACK
+Thomas_BRDARIC
+Sebastian_KEHL
+Jens_JEREMIES
+Christian_ZIEGE
+Fabian_ERNST
+Bernd_SCHNEIDER
+Lukas_PODOLSKI
+Philipp_LAHM
+Torsten_FRINGS
+Timo_HILDEBRAND
+LEVEL LABELS:
+1
+DATA:
+  0  0  2  4  1  0  2  1  0  3  0  0  1  0  0  0  0  0  2  0  0  1  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  1  0  0  1  6  0  7  1  0  3  1  0  9  0  0  3  0  0  5  1  1  8  0
+  1  0  4  0 11  0  9  6  0  1  1  0  5  0  0  0  0  0  1  1 12  1  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  1  0  3  9  5  0  0 12  0  2  0  0 13  0  0  0  0  0  6  1  8  4  0
+  1  0  2  8  6  0 12  0  0  3  0  0 10  0  0  0  0  0  6  3  7  1  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  3  0  1  1  2  0  2  1  0  0  0  0  6  0  0  3  0  0  6  0  1  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  1  0  6  2  6  0  6 13  0  4  0  0  0  0  0  1  0  0 10  3  8  8  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  2  0  9  1  0  0  0  2  0  0  0  0  6  0  0  1  0  0  0  0  1  6  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  1  5  6  0  8  8  0  0  1  0  0  0  0  5  0  0  2  6  0  0  0
+  1  0  5  1  1  0  0  2  0  2  0  0  4  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0

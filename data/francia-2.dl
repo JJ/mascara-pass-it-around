@@ -1,0 +1,75 @@
+DL
+N=23
+FORMAT = FULLMATRIX DIAGONAL PRESENT
+ROW LABELS:
+Mickaël_LANDREAU
+Jean-Alain_BOUMSONG
+Bixente_LIZARAZU
+Patrick_VIEIRA
+William_GALLAS
+Claude_MAKELELE
+Robert_PIRES
+Marcel_DESAILLY
+Louis_SAHA
+Zinédine_ZIDANE
+Sylvain_WILTORD
+Thierry_HENRY
+Mikaël_SILVESTRE
+Jérôme_ROTHEN
+Lilian_THURAM
+Fabien_BARTHEZ
+Olivier_DACOURT
+Benoît_PEDRETTI
+Willy_SAGNOL
+David_TREZEGUET
+Steve_MARLET
+Sidney_GOVOU
+Grégory_COUPET
+COLUMN LABELS:
+Mickaël_LANDREAU
+Jean-Alain_BOUMSONG
+Bixente_LIZARAZU
+Patrick_VIEIRA
+William_GALLAS
+Claude_MAKELELE
+Robert_PIRES
+Marcel_DESAILLY
+Louis_SAHA
+Zinédine_ZIDANE
+Sylvain_WILTORD
+Thierry_HENRY
+Mikaël_SILVESTRE
+Jérôme_ROTHEN
+Lilian_THURAM
+Fabien_BARTHEZ
+Olivier_DACOURT
+Benoît_PEDRETTI
+Willy_SAGNOL
+David_TREZEGUET
+Steve_MARLET
+Sidney_GOVOU
+Grégory_COUPET
+DATA:
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  7  0  3  3  0 17  7  3  3  0  5  1  4  2  3  5  0  0  0
+  0  0  0  9  0  0  0  1  0  4  0  1  0  0 10  1  2  0  0  2  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0 18  2  0  4  9  0  0  0 13 15  0  2  3  7  2  3  5  0  0  0
+  0  0  0  3  9  0  0  1  0 10  0  2  2  0  3  2  1  0  0  3  0  0  0
+  0  0  0  3  3  0  0  0  0 10  1  0  4  0  0  0  0  0  0  5  0  0  0
+  0  0  0  7  2  0  2  9  0  0  2  6  0  0  1  2  8  1  0  3  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  3  8  0  0 10  0  5  3  0  1  0  0  4  3  1  1  1  0  0  0
+  0  0  0  1  4  0  1  5  0  3  2  0  6  0  2  0  2  2  1  2  0  0  0
+  0  0  0  7  4  0  0  2  0  5  1  8  1  0  4  2  0  0  0  2  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  3  1  0  1  0  0  3  5  3  2  0  0  2  1  2  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
