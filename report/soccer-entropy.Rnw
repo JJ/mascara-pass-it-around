@@ -221,6 +221,8 @@ Soccer is probably the most popular team sport in the world, so it is no wonder 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
 
+\section*{State of the art}
+
 
 \section*{Materials and methods}
 
@@ -242,7 +244,7 @@ This was data on several matches in which the Spanish national team intervened d
 
 This data is also available in the repository that hosts this paper, and includes three datasets: Germany, the Netherlands and Paraguay against Spain, corresponding to the semifinals, finals and also quarter-finals.
 
-Scripts that deal with this dataset are included in the repository that hosts this paper, as well as embedded in this paper.
+Scripts that deal with this dataset are included in the repository that hosts this paper, as well as embedded in this paper. It was posted by the authors and available in ResearchGate, as well as hosted in this repository. It has a free license.
 
 \subsection*{Women's soccer World Cup 2022}
 
