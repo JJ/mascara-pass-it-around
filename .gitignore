@@ -31,9 +31,23 @@ vignettes/*.pdf
 *_cache/
 /cache/
 
+# Latex
+*.bbl
+*.tex
+*.gz
+*.pdf
+*.log
+auto/
+
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
 
 # R Environment Variables
 .Renviron
+
+# Comma
+.idea
+
+# Emacs backup
+*~
