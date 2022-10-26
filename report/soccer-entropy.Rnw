@@ -228,6 +228,13 @@ We have used three football passes datasets, spanning 18 years, from 2004 to 202
 
 \subsection{Euro 2004 dataset}
 
+The UEFA Euro 2004 competition was a soccer tournament that was held in Portugal during the summer 2004. It resulted in the striking win of Greece, who beat Portugal, the hosting squad, 2 - 1. It was probably one of the first soccer tournament that published player and team-level statistics in their website, in the shape of CSV files that contained the adjacency matrix for the passes for every match and every team.
+
+That content was scraped by the author, converted to UCINET \cite{ucinet} format, and posted in the website for the Spanish Revista Redes \cite{redesvsredes}. The objective of this posting was a competition to predict the winner and 3 top teams in the competition. Several researchers, including the author, participated in that competition with completely wrong entries. Not even one of the four participants even included any of the two winners among the top four.
+
+In order to perform the analysis required by this paper, we needed to transform the data back to an adjacency matrix. Only 4 files in the original format were available; for the rest, a series of scripts were written to put them back in a format that can be understood by \texttt{igraph} \cite{csardi2006igraph}, the software we are using for this paper. These files are available from this repository, along with the original files as well as the scripts used to transform them.
+
+
 
 % Results and Discussion can be combined.
 \section*{Results}
@@ -276,7 +283,6 @@ Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel
 \end{itemize}
 
 \section*{Discussion}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero~\cite{bib3}.
 
 \section*{Conclusion}
 
