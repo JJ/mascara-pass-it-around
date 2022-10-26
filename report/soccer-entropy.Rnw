@@ -223,6 +223,11 @@ Soccer is probably the most popular team sport in the world, so it is no wonder 
 
 \section*{State of the art}
 
+% Describe how data analysis was applied to sports and team sports and how
+
+% Describe how complex network analysis has been applied to team sports and which quantities have been used
+
+% Desribe how entropy is important in this kind of analysis and why.
 
 \section*{Materials and methods}
 
@@ -265,7 +270,7 @@ Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 
 \section*{Supporting information}
 
-% Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
+This paper has been supported in part by project and DemocratAI PID2020-115570GB-C22.
 
 \section*{Acknowledgments}
 
