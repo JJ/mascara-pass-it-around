@@ -242,11 +242,13 @@ This was data on several matches in which the Spanish national team intervened d
 
 This data is also available in the repository that hosts this paper, and includes three datasets: Germany, the Netherlands and Paraguay against Spain, corresponding to the semifinals, finals and also quarter-finals.
 
+Scripts that deal with this dataset are included in the repository that hosts this paper, as well as embedded in this paper.
+
 \subsection*{Women's soccer World Cup 2022}
 
 This dataset is part of the free sets offered by the StatsBomb company. They have been available by simply using their R module, which is available in CRAN. It is a very complete datasets of \emph{events} in matches, that includes not only passes, but also other kind of events like fouls and goals; they also have intercepts and, in general, it is an amazingly complete dataset that reflects the increasing interest in this kind of data, which went from very generic passes data with match granularity to to very specific and high-resolution data on all kind of events happening on the pitch.
 
-This data was used for Elena Merelo's BEng/BSc thesis \cite{MERELO2022}, which focused on England (the winner) and Norway (which was defeated 8-0 by England in an upset match).
+This data was used for Elena Merelo's BEng/BSc thesis \cite{MERELO2022}, which focused on England (the winner) and Norway (which was defeated 8-0 by England in an upset match). Scripts that process this data are available as the \texttt{statsbomb} package, and specific scripts embedded in this paper and available from this repository.
 
 % Results and Discussion can be combined.
 \section*{Results}
