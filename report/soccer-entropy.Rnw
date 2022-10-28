@@ -179,7 +179,7 @@
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
-JJ Merelo\textsuperscript{1,\Yinyang},
+JJ Merelo\textsuperscript{1},
 \\
 \bigskip
 \textbf{1} Department of Computer Architecture and Technology, University of Granada, Spain
@@ -190,11 +190,11 @@ JJ Merelo\textsuperscript{1,\Yinyang},
 % Remove or comment out the author notes below if they aren't used.
 %
 % Primary Equal Contribution Note
-\Yinyang These authors contributed equally to this work.
+%\Yinyang These authors contributed equally to this work.
 
 % Additional Equal Contribution Note
 % Also use this double-dagger symbol for special authorship notes, such as senior authorship.
-\ddag These authors also contributed equally to this work.
+%\ddag These authors also contributed equally to this work.
 
 % Current address notes
 \textcurrency Current Address: ETSIIT, C/ Daniel Saucedo Aranda, s/n 18071 Granada (Spain) % change symbol to "\textcurrency a" if more than one current address note
@@ -202,10 +202,10 @@ JJ Merelo\textsuperscript{1,\Yinyang},
 % \textcurrency c Insert third current address
 
 % Deceased author note
-\dag Deceased
+%\dag Deceased
 
 % Group/Consortium Author Note
-\textpilcrow Membership list can be found in the Acknowledgments section.
+%\textpilcrow Membership list can be found in the Acknowledgments section.
 
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
 * jmerelo@ugr.es
