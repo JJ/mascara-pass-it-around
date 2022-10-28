@@ -221,6 +221,18 @@ Soccer is probably the most popular team sport in the world, so it is no wonder 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
 
+Trying to find out the outcome of a soccer match is an endeavor in which many people have engaged for as long as soccer has existed, be it because you want to know exactly by how much the team you dig for will win, or because you have placed a bet on the outcome and need to hedge it with an assessment of the existing situation and the possible outcome.
+
+The existence of betting companies, on one hand, data journalism, on the other, and dedicated data analysis in every professional team in yet another, has exacerbated the need for data, as well as tools that are able to find answers to several questions. Besides who is going to win and how many goals are going to be scored, several other questions such as who, among the existing pool of players, is going to best match the rest of the team, who is going to substitute a player on the pitch, or who to buy and sell are different questions that seek answers by using data analysis.
+
+It is only lately, however, that we have detailed data on what happens on the match, thanks to AI tools that are able to automatically transcribe what is going on on the pitch. The need, however, still exist, since there is no principled theory that is able to answer those questions on existing data, or a model detailed enough that it can be fed the data and, through simulation, come up with the right answer.
+
+We can, however, ask different questions about the data, some of which are maybe not as economically viable, but still give us some insight on the dynamics of this game. The first one is if there is some kind of measurement on the players performance and interaction that can give us an \emph{a posteriori} explanation of what has happened on the game. When a team fails, the usual move is to sack the coach; however, can data analysis give us some additional insight of what has happened and why?
+
+Additionally, it would be extremely interesting if the same measurements, or analysis, would yield values that could characterize a team, or at least have a certain amount of invariability that is resilient against the fact that every match is played against an opponent, which is inherently different. These measurements would allow us to \emph{profile} a team, and evaluate the impact of policies, players or any other factor (including opposing teams) on the profile. It could also help us to create a \emph{digital twin} for the team, so that we can feed this digital team with proposed changes and yield a possible effect.
+
+Through time, one of the main tools that has been used to answer these two questions has been social network analysis \cite{scott2012social}. Since one of the most characteristic features of the game is the fact that passes are happening all the time, and moves are built through these passes, analyzing the complex network created by these passes can certainly help answer the question above, and come up with such measurement. However, as is evident by its name, social network analysis has been created mainly to analyze information transfer in social groups, not so much to analyze physical transfer of possession among different members of a team, or between a team and the opponent.
+
 \section*{State of the art}
 
 % Describe how data analysis was applied to sports and team sports and how
