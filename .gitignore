@@ -38,6 +38,8 @@ vignettes/*.pdf
 *.pdf
 *.log
 *.blg
+*.aux
+*.out
 auto/
 
 # Temporary files created by R markdown
@@ -52,3 +54,4 @@ auto/
 
 # Emacs backup
 *~
+
