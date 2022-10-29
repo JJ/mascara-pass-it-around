@@ -1,30 +1,3 @@
-% Template for PLoS
-% Version 3.6 Aug 2022
-%
-% % % % % % % % % % % % % % % % % % % % % %
-%
-% -- IMPORTANT NOTE
-%
-% This template contains comments intended 
-% to minimize problems and delays during our production 
-% process. Please follow the template instructions
-% whenever possible.
-%
-% % % % % % % % % % % % % % % % % % % % % % % 
-%
-% Once your paper is accepted for publication, 
-% PLEASE REMOVE ALL TRACKED CHANGES in this file 
-% and leave only the final text of your manuscript. 
-% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
-% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
-%
-%
-% There are no restrictions on package use within the LaTeX files except that no packages listed in the template may be deleted.
-%
-% Please do not include colors or graphics in the text.
-%
-% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
-%
 % % % % % % % % % % % % % % % % % % % % % % %
 %
 % -- FIGURES AND TABLES
@@ -233,6 +206,12 @@ Additionally, it would be extremely interesting if the same measurements, or ana
 
 Through time, one of the main tools that has been used to answer these two questions has been social network analysis \cite{scott2012social}. Since one of the most characteristic features of the game is the fact that passes are happening all the time, and moves are built through these passes, analyzing the complex network created by these passes can certainly help answer the question above, and come up with such measurement. However, as is evident by its name, social network analysis has been created mainly to analyze information transfer in social groups, not so much to analyze physical transfer of possession among different members of a team, or between a team and the opponent.
 
+This is why, from the beginning of the analysis of soccer matches using social networks \cite{redesvsredes}, researchers have tried to come up with measurements that are meaningful in a intuitive way, and also have descriptive and predictive power, with an emphasis on the first. Lately, however, entropy \cite{entropy-extended,spatial-and-temporal-entropies,entropy-analysis,MERELO2022} has emerged as one of the best way to perform these dual functions, and at the same time be invariable enough to be able to describe teams accross matches and competitions.
+
+In this paper, we will use data from competitions that date back to the early 2000s to study how entropy, and spread of entropy across a team during matches and competitions, is able to describe a team and, to a certain extent, predict if not the outcome of a game, at least the superiority of a team against another, which is often (but not always) correlated with victory.
+
+The rest of the paper is organized as follows: next we will examine the state of the art in the area of using social network analysis in soccer; this will be followed in Section \cite{sec:mm} by an examination of the data used in this paper and how it's been obtained. Next we will analyze this data, first separately and then compare it between different competitions, if possible with the same team, focusing on the diverse performance of the Spanish selection in 2004 Euro cup and the 2010 world cup. Finally, we will discuss these results and expose our conclusions.
+
 \section*{State of the art}
 
 % Describe how data analysis was applied to sports and team sports and how
@@ -241,7 +220,7 @@ Through time, one of the main tools that has been used to answer these two quest
 
 % Desribe how entropy is important in this kind of analysis and why.
 
-\section*{Materials and methods}
+\section*{Materials and methods}\label{sec:mm}
 
 We have used three football passes datasets, spanning 18 years, from 2004 to 2022. We will describe them next.
 
