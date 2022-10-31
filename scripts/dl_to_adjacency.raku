@@ -21,9 +21,8 @@ sub convert( $file ) {
     spurt( "$file.csv", $output);
 
 }
-for <alemania chequia holanda letonia >
--> $pais {
-    convert( "data/$pais.dl");
+for <grecia bulgaria croacia dinamarca francia inglaterra italia portugal
+rusia suecia suiza> -> $pais {
     for 2..6 {
         convert( "data/$pais-$_.dl")
     }
