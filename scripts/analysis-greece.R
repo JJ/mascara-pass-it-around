@@ -8,7 +8,9 @@ net_euro_2004 <- function( data_file ) {
   net.2004 <- delete.vertices(net.2004, isolated)
   E(net.2004)$weight <- 1
   net.2004.simplified <- igraph::simplify(net.2004, edge.attr.comb = list(weight = "sum"))
-  plot(net.2004.simplified,edge.width = E(net.2004.simplified)$weight)
+  net.2004.simplified$diversity <- diversity(net.2004.simplified)
+  plot(net.2004.simplified,edge.width = E(net.2004.simplified)$weight, vertex.size = net.2004.simplified$diversity * 10,)
+  print(net.2004.simplified$diversity)
 }
 
-net_euro_2004("data/grecia.dl.csv")
+net_euro_2004("data/grecia-4.dl.csv")
