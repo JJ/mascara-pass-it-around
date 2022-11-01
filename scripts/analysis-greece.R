@@ -34,5 +34,4 @@ for (i in 2:6) {
 }
 
 print( entropy( E(portugal.nets[['portugal-6']])$weight, E(grecia.nets[['grecia-6']])$weight) )
-print( entropy( E(grecia.nets[['grecia-6']])$weight,E(grecia.nets[['grecia-6']])$weight) )
 
