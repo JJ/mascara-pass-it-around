@@ -25,4 +25,4 @@ for (i in c("grecia", "grecia-2", "grecia-3", "grecia-5", "grecia-6")) {
 
 portugal.1 <- net_euro_2004("data/portugal.dl.csv")
 portugal <- data.frame(game="portugal",entropy=entropy(E(portugal.1)$weight))
-portugal.nets <- c()
+portugal.nets <- c(portugal.1)
