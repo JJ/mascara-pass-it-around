@@ -8,9 +8,9 @@ sub convert( $file ) {
     my @labels = @blocks[1].split(/\s+/)[1..*-2].map: *.trim;
     my $output =  " ," ~ @labels.join(",") ~ "\n";
     my $data-block = @blocks[2];
-    for $data-block.split(/\v/)[1..*-2] -> $l {
-        my @values = $l.split(/\s+/);
-        $output ~=  @labels.shift ~ @values.join(",") ~ "\n";
+    for $data-block.split(/\v+\s*/)[1..*-2] -> $l {
+        my @values = $l.trim.split(/\s+/);
+        $output ~=  @labels.shift ~ ',' ~ @values.join(",") ~ "\n";
     }
     spurt( "$file.csv", $output);
 
