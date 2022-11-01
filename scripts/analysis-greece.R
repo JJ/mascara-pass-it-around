@@ -16,13 +16,23 @@ net_euro_2004 <- function( data_file ) {
 
 
 grecia <- data.frame(game=character(),entropy=numeric())
-grecia.nets <- c()
+grecia.nets <- list()
 for (i in c("grecia", "grecia-2", "grecia-3", "grecia-5", "grecia-6")) {
   this.net <- net_euro_2004(paste0("data/",i,".dl.csv"))
-  grecia.nets <- c(grecia.nets,this.net)
+  grecia.nets[[i]] = this.net
   grecia <- rbind(grecia,data.frame(game=i,entropy=entropy(E(this.net)$weight)))
 }
 
 portugal.1 <- net_euro_2004("data/portugal.dl.csv")
 portugal <- data.frame(game="portugal",entropy=entropy(E(portugal.1)$weight))
-portugal.nets <- c(portugal.1)
+portugal.nets <- list()
+portugal.nets[['portugal']] = portugal.1
+for (i in 2:6) {
+  this.net <- net_euro_2004(paste0("data/portugal-",i,".dl.csv"))
+  portugal.nets[[paste0("portugal-",i)]] = this.net
+  portugal <- rbind(portugal,data.frame(game=i,entropy=entropy(E(this.net)$weight)))
+}
+
+print( entropy( E(portugal.nets[['portugal-6']])$weight, E(grecia.nets[['grecia-6']])$weight) )
+print( entropy( E(grecia.nets[['grecia-6']])$weight,E(grecia.nets[['grecia-6']])$weight) )
+
