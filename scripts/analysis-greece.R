@@ -10,20 +10,25 @@ net_euro_2004 <- function( data_file ) {
   net.2004 <- delete.vertices(net.2004, isolated)
   E(net.2004)$weight <- 1
   net.2004.simplified <- igraph::simplify(net.2004, edge.attr.comb = list(weight = "sum"))
-  net.2004.simplified$diversity <- diversity(net.2004.simplified)
+  V(net.2004.simplified)$diversity <- diversity(net.2004.simplified)
+  V(net.2004.simplified)$betweenness <- betweenness(net.2004.simplified)
+  V(net.2004.simplified)$bd <- V(net.2004.simplified)$diversity *  V(net.2004.simplified)$betweenness
   return(net.2004.simplified)  
 }
 
 
 grecia <- data.frame(game=character(),entropy=numeric())
 grecia.nets <- list()
+bd.ranking <- data.frame(player = character(), game = character(), bd = numeric())
 for (i in c("grecia", "grecia-2", "grecia-3", "grecia-5", "grecia-6")) {
   this.net <- net_euro_2004(paste0("data/",i,".dl.csv"))
   grecia.nets[[i]] = this.net
   grecia <- rbind(grecia,data.frame(game=i,entropy=entropy(E(this.net)$weight)))
+  bd.ranking <- rbind(bd.ranking,data.frame(player=V(this.net)$name,game=rep(i,length(V(this.net)$name)),bd=V(this.net)$bd))
 }
 
 portugal.1 <- net_euro_2004("data/portugal.dl.csv")
+bd.ranking <- rbind(bd.ranking,data.frame(player=V(portugal.1)$name,game=rep("portugal",length(V(portugal.1)$name)),bd=V(portugal.1)$bd))
 portugal <- data.frame(game="portugal",entropy=entropy(E(portugal.1)$weight))
 portugal.nets <- list()
 portugal.nets[['portugal']] = portugal.1
@@ -31,7 +36,8 @@ for (i in 2:6) {
   this.net <- net_euro_2004(paste0("data/portugal-",i,".dl.csv"))
   portugal.nets[[paste0("portugal-",i)]] = this.net
   portugal <- rbind(portugal,data.frame(game=i,entropy=entropy(E(this.net)$weight)))
+  bd.ranking <- rbind(bd.ranking,data.frame(player=V(this.net)$name,game=rep(i,length(V(this.net)$name)),bd=V(this.net)$bd))
 }
 
-print( entropy( E(portugal.nets[['portugal-6']])$weight, E(grecia.nets[['grecia-6']])$weight) )
+print( bd.ranking[order(bd.ranking$bd,decreasing=T),] )
 
