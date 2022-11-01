@@ -13,4 +13,4 @@ net_euro_2004 <- function( data_file ) {
   print(net.2004.simplified$diversity)
 }
 
-net_euro_2004("data/grecia-4.dl.csv")
+net_euro_2004("data/grecia-6.dl.csv")
