@@ -4,7 +4,7 @@ library(igraph)
 library(entropy)
 net_euro_2004 <- function( data_file ) {
   print(data_file)
-  adj_matrix <- as.matrix(read.csv(data_file,fileEncoding="latin1",row.names=1, check.names=FALSE, na.strings = ""))
+  adj_matrix <- as.matrix(read.csv(data_file,row.names=1, check.names=FALSE, na.strings = ""))
   net.2004 <- graph_from_adjacency_matrix(adj_matrix,mode="undirected")
   isolated <- which(degree(net.2004)==0)
   net.2004 <- delete.vertices(net.2004, isolated)
@@ -37,7 +37,7 @@ for (i in 2:6) {
   game <- paste0("portugal-",i)
   portugal.nets[[game]] = this.net
   portugal <- rbind(portugal,data.frame(game=game,entropy=entropy(E(this.net)$weight)))
-  bd.ranking <- rbind(bd.ranking,data.frame(player=V(this.net)$name,game=rep(i,length(V(this.net)$name)),bd=V(this.net)$bd))
+  bd.ranking <- rbind(bd.ranking,data.frame(player=V(this.net)$name,game=rep(game,length(V(this.net)$name)),bd=V(this.net)$bd))
 }
 
 
