@@ -34,8 +34,14 @@ for (i in c("grecia", "grecia-2", "grecia-3", "grecia-5", "grecia-6")) {
 }
 
 portugal.1 <- net_euro_2004("data/portugal.dl.csv")
-bd.ranking <- rbind(bd.ranking,data.frame(player=V(portugal.1)$name,game=rep("portugal",length(V(portugal.1)$name)),bd=V(portugal.1)$bd),entropy=V(portugal.1)$diversity,
-                    betweenness=V(portugal.1)$betweenness)
+bd.ranking <- rbind(bd.ranking,
+                    data.frame(player=V(portugal.1)$name,
+                               team="Portugal",
+                               game=rep("portugal",length(V(portugal.1)$name)),
+                               bd=V(portugal.1)$bd,
+                               entropy=V(portugal.1)$diversity,
+                               betweenness=V(portugal.1)$betweenness)
+)
 portugal <- data.frame(game="portugal",entropy=entropy(E(portugal.1)$weight))
 portugal.nets <- list()
 portugal.nets[['portugal']] = portugal.1
@@ -52,5 +58,6 @@ for (i in 2:6) {
                                             betweenness=V(this.net)$betweenness))
 }
 
-
+ggplot(bd.ranking[ bd.ranking$game=="portugal" | bd.ranking$game=="grecia",], aes(x=entropy,y=betweenness,shape=team,color=game,label=player))+geom_point()+geom_text(hjust=1,vjust=-1)
+ggplot(bd.ranking[ bd.ranking$game=="portugal-6" | bd.ranking$game=="grecia-6",], aes(x=entropy,y=betweenness,shape=team,color=game,label=player))+geom_point()+geom_text(hjust=1,vjust=-1)
 
