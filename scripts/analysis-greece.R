@@ -34,10 +34,11 @@ portugal.nets <- list()
 portugal.nets[['portugal']] = portugal.1
 for (i in 2:6) {
   this.net <- net_euro_2004(paste0("data/portugal-",i,".dl.csv"))
-  portugal.nets[[paste0("portugal-",i)]] = this.net
-  portugal <- rbind(portugal,data.frame(game=i,entropy=entropy(E(this.net)$weight)))
+  game <- paste0("portugal-",i)
+  portugal.nets[[game]] = this.net
+  portugal <- rbind(portugal,data.frame(game=game,entropy=entropy(E(this.net)$weight)))
   bd.ranking <- rbind(bd.ranking,data.frame(player=V(this.net)$name,game=rep(i,length(V(this.net)$name)),bd=V(this.net)$bd))
 }
 
-print( bd.ranking[order(bd.ranking$bd,decreasing=T),] )
+
 
