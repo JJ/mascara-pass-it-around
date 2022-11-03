@@ -217,6 +217,8 @@ Using data to record performance in soccer and thus improve was only done, so to
 
 We should also mention here the work of Salam Qureishi, who under contract from IBM, performed data analysis on the NFL draftees to try and choose the best ones for the Dallas cowboys \cite{MERELO2022,chazan2020sports}, although since it was a contract work and a company was created to make it more professional, there is very little detail on what was actually done; it is a sample, however, of how data analysis started to be performed in team sports (in this case American football) as soon as computing power and data were available.
 
+Further attempts to systematize the game to improve performance were made beyond the Iron Curtain by Lobanevsky and others, who applied \emph{scientific socialism} to team organization \cite{braun2013soccer}. Unfortunately, as is usually the case with scientifc socialism, the good results obtained by the Dynamo de Kiev were most probably a fraud \cite{vorontsov2011cheating}, with match fixing, rather than tactics, bringing Dynamo to the forefront of Soviet soccer leagues.
+
 % Describe how complex network analysis has been applied to team sports and which quantities have been used
 
 % Desribe how entropy is important in this kind of analysis and why.
