@@ -221,6 +221,8 @@ Further attempts to systematize the game to improve performance were made beyond
 
 % Describe how complex network analysis has been applied to team sports and which quantities have been used
 
+Complex network analysis emerged at the beginning of the century and the end of the 20th century with the convergence of three different disciplines; graph theory from mathematics \cite{ERmodel}, spin glass theory from physics, and sociometry in the social sciences. By applying results from physics, statistics and mathematics \cite{strogatz2001exploring,albert2002statistical}, emerging behavior in groups of actors linked by physical or informational relationships could be analyzed, explained, and to a certain point, predicted. 
+
 % Desribe how entropy is important in this kind of analysis and why.
 
 \section*{Materials and methods}
