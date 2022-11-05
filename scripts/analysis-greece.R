@@ -11,8 +11,7 @@ bd.ranking <- data.frame(player = character(), team = character(), game = charac
 
 entropies <- function( a.vector ) {
   states <- length(a.vector)
-  print(states)
-  print(log(states))
+  print(a.vector)
   entropy <- entropy(a.vector,method="ML",unit="log")
   print(entropy)
   normEntropy <- entropy/log(states)
