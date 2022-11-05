@@ -14,7 +14,7 @@ for (i in c("spain", "spain-2")) {
   spain <- rbind(spain,data.frame(game=i,entropy=entropy(E(this.net)$weight)))
   bd.ranking <- rbind(bd.ranking,
                       data.frame(player=V(this.net)$name,
-                                 team="Greece",
+                                 team="Spain",
                                  game=rep(i,length(V(this.net)$name)),
                                  bd=V(this.net)$bd,
                                  entropy=V(this.net)$diversity,
