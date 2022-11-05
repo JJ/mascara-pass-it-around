@@ -1,4 +1,5 @@
 library(igraph)
+library(CINNA)
 net_euro_2004 <- function( data_file ) {
   print(data_file)
   adj_matrix <- as.matrix(read.csv(data_file,row.names=1, check.names=FALSE, na.strings = ""))
@@ -9,6 +10,8 @@ net_euro_2004 <- function( data_file ) {
   net.2004.simplified <- igraph::simplify(net.2004, edge.attr.comb = list(weight = "sum"))
   V(net.2004.simplified)$diversity <- diversity(net.2004.simplified)
   V(net.2004.simplified)$betweenness <- betweenness(net.2004.simplified)
+  centralities <- calculate_centralities(net.2004.simplified)
+  V(net.2004.simplified)$flow <- centralities$`Flow Betweenness Centrality`
   V(net.2004.simplified)$bd <- V(net.2004.simplified)$diversity *  V(net.2004.simplified)$betweenness
   return(net.2004.simplified)  
 }
