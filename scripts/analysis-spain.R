@@ -23,3 +23,4 @@ for (i in c("spain", "spain-2")) {
 }
 
 plot(spain.nets[[1]])
+plot(spain.nets[[2]],edge.width = E(spain.nets[[2]])$weight,vertex.size = V(spain.nets[[2]])$betweenness, vertex.color="red")
