@@ -10,9 +10,13 @@ grecia.norm <- c()
 bd.ranking <- data.frame(player = character(), team = character(), game = character(), bd = numeric(), entropy = numeric(), betweenness = numeric())
 
 entropies <- function( a.vector ) {
-  states <- length(unique(a.vector))
-  entropy <- entropy(a.vector)
-  normEntropy <- entropy/log2(states)
+  states <- length(a.vector)
+  print(states)
+  print(log(states))
+  entropy <- entropy(a.vector,method="ML",unit="log")
+  print(entropy)
+  normEntropy <- entropy/log(states)
+  print(normEntropy)
   return(c(entropy,normEntropy))
 }
 
@@ -36,6 +40,7 @@ for (i in c("grecia", "grecia-2", "grecia-3", "grecia-5", "grecia-6")) {
 }
 
 portugal.1 <- net_euro_2004("data/portugal.dl.csv")
+these.entropies <- entropies(E(portugal.1)$weight)   
 bd.ranking <- rbind(bd.ranking,
                     data.frame(player=V(portugal.1)$name,
                                team="Portugal",
@@ -44,14 +49,17 @@ bd.ranking <- rbind(bd.ranking,
                                entropy=V(portugal.1)$diversity,
                                betweenness=V(portugal.1)$betweenness)
 )
-portugal <- data.frame(game="portugal",entropy=entropy(E(portugal.1)$weight))
+portugal <- data.frame(game="portugal",entropy=these.entropies[[1]], normEntropy=these.entropies[[2]])
 portugal.nets <- list()
 portugal.nets[['portugal']] = portugal.1
 for (i in 2:6) {
   this.net <- net_euro_2004(paste0("data/portugal-",i,".dl.csv"))
   game <- paste0("portugal-",i)
   portugal.nets[[game]] = this.net
-  portugal <- rbind(portugal,data.frame(game=game,entropy=entropy(E(this.net)$weight)))
+  these.entropies <- entropies(E(this.net)$weight)
+  portugal <- rbind(portugal,data.frame(game=game,
+                                        entropy=these.entropies[[1]],
+                                        normEntropy=these.entropies[[2]]))
   bd.ranking <- rbind(bd.ranking,
                       data.frame(player=V(this.net)$name,
                                  team="Portugal",
