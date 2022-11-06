@@ -1,6 +1,9 @@
 library(igraph)
+library(ggplot2)
+library(ggthemes)
 
 load("data/euro-2004.RData")
+load("data/euro-2004-betw-flow-diversity.RData")
 
 france <- euro2004.nets[["francia-4"]]
 greece <- euro2004.nets[["grecia-3"]]
