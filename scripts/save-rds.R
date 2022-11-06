@@ -32,3 +32,5 @@ for (i in c(
 
 save(euro2004.nets,file="data/euro-2004.RData")
 save(euro2004,file="data/euro-2004-player.RData")
+bd.ranking$fd <- bd.ranking$flow * bd.ranking$entropy
+save(bd.ranking, file="data/euro-2004-betw-flow-diversity.RData")
