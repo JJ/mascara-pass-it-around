@@ -1,5 +1,8 @@
 library(igraph)
 library(dplyr)
+library(ggplot2)
+library(ggthemes)
+
 load("data/euro-2004.RData")
 load("data/euro-2004-betw-flow-diversity.RData")
 load("data/euro-2004-player.RData")
@@ -22,3 +25,7 @@ ggplot(bd.ranking[ bd.ranking$game=="portugal-6" | bd.ranking$game=="grecia-6",]
 
 euro2004$team <- as.factor(as.character(lapply( euro2004$game, function(x) strsplit(x,"-")[[1]][1])))
 ggplot(euro2004, aes(x=reorder(game,entropy),y=entropy,color=team))+geom_point()+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+xlab("Game")
+
+luis.figo <- bd.ranking[ bd.ranking$player =="_LUIS_FIGO", ]
+luis.figo$game <- as.factor(as.character(luis.figo$game))
+ggplot(luis.figo, aes(x=betweenness,y=flow,size=entropy,color=game))+geom_point()
