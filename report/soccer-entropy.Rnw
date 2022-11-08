@@ -236,7 +236,8 @@ Far as we can tell, this success was driven more by intuitive understanding of t
 \section*{Materials and methods}
 \label{sec:mm}
 
-We have used three football passes datasets, spanning 18 years, from 2004 to 2022. We will describe them next.
+We have used four football passes datasets, spanning 18 years, from 2004 to 2022. Data transformed for this paper is available in the same repository.
+We will describe them next.
 
 \subsection*{Euro 2004 dataset}
 
