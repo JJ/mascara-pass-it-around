@@ -3,7 +3,7 @@ portugal,1,2,grecia
 spain,1,0,rusia
 suiza,0,0,croacia
 francia,2,1,inglaterra
-dinamarca,0,0,italia-2
+dinamarca,0,0,italia
 suecia,5,0,bulgaria
 alemania,1,1,holanda
 chequia,2,1,letonia
@@ -12,7 +12,7 @@ rusia-2,0,2,portugal-2
 inglaterra-2,3,0,suiza-2
 croacia-2,2,2,francia-2
 bulgaria-2,0,2,dinamarca-2
-Italia-2,1,1,suecia-2
+italia-2,1,1,suecia-2
 letonia-2,0,0,alemania-2
 holanda-2,1,3,chequia-2
 spain-3,0,1,portugal-3
