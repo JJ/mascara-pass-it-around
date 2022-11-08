@@ -1,8 +1,13 @@
 library(igraph)
 library(CINNA)
+
+adjacency_for_file <- function( file_name ) {
+  return(as.matrix(read.csv(data_file,row.names=1, check.names=FALSE, na.strings = "")))
+}
+
 net_euro_2004 <- function( data_file ) {
   print(data_file)
-  adj_matrix <- as.matrix(read.csv(data_file,row.names=1, check.names=FALSE, na.strings = ""))
+  adj_matrix <- adjacency_for_file( data_file )
   net.2004 <- graph_from_adjacency_matrix(adj_matrix,mode="undirected")
   isolated <- which(degree(net.2004)==0)
   net.2004 <- delete.vertices(net.2004, isolated)
