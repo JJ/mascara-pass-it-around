@@ -250,7 +250,7 @@ This data was used in several technical reports and posters \cite{futbol2005,bun
 
 \subsection*{Euro 2008 dataset}
 
-This is a dataset that includes only the passes in Pajek's \texttt{.net} format. It was scraped from the web by the author, and stored in a LaunchPad and they GitHub repository. Unfortunately, just two files, for Spain and Germany during the final, have been kept. This match resulted in victory for Spain, 1-0, in a goal scored by Torres in the first half. This data is also stored and released with a free license in the repo for this paper.
+This is a dataset that includes only the passes in Pajek's \texttt{.net} format. It was scraped from the web by the author, and stored in a LaunchPad and they GitHub repository. Unfortunately, just two files, for Spain and Germany during the final, have been kept. This match resulted in victory for Spain, 1-0 \cite{enwiki:1113516212}, in a goal scored by Torres in the first half. This data is also stored and released with a free license in the repo for this paper.
 
 \subsection*{Spain in 2010 world cup dataset}
 
