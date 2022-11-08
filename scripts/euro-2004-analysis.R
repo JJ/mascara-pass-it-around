@@ -13,18 +13,21 @@ ggplot(euro2004, aes(x=stage,y=tsallisEntropy,color=team))+geom_point()+ theme(a
 
 matches <- read.csv(paste0(PREFIX,"partidos.csv"))
 
-entropy.diffs <- data.frame(match=character(),scorediff=numeric(),entropydiff=numeric())
+entropy.diffs <- data.frame(match=character(),scorediff=numeric(),entropydiff=numeric(),stage=character())
 for (match in 1:nrow(matches)) {
   team1 <- matches[match,"Team1"]
   team2 <- matches[match,"Team2"]
+  stage <- strsplit(team1,"-")[[1]][2]
+
   entropy1 <- unique(euro2004[euro2004$game==team1,]$tsallisEntropy)
   entropy2 <- unique(euro2004[euro2004$game==team2,]$tsallisEntropy)
   entropy.diffs <- rbind(entropy.diffs,
                          data.frame(match=paste0(team1,"-",team2),
+                                    stage=stage,
                                     scorediff=matches[match,"Goals1"]-matches[match,"Goals2"],
                                     entropydiff=entropy1-entropy2)
                          )
 }
 
-ggplot(entropy.diffs,aes(x=entropydiff,y=scorediff))+geom_point()
+ggplot(entropy.diffs[entropy.diffs$stage<=3,],aes(x=entropydiff,y=scorediff))+geom_point()
 
