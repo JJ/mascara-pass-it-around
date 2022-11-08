@@ -15,8 +15,8 @@ entropy.diffs <- data.frame(match=character(),scorediff=numeric(),entropydiff=nu
 for (match in 1:nrow(matches)) {
   team1 <- matches[match,"Team1"]
   team2 <- matches[match,"Team2"]
-  entropy1 <- euro2004[euro2004$game==team1,]$entropy
-  entropy2 <- euro2004[euro2004$game==team2,]$entropy
+  entropy1 <- unique(euro2004[euro2004$game==team1,]$entropy)
+  entropy2 <- unique(euro2004[euro2004$game==team2,]$entropy)
   entropy.diffs <- rbind(entropy.diffs,
                          data.frame(match=paste0(team1,"-",team2),
                                     scorediff=matches[match,"Goals1"]-matches[match,"Goals2"],
@@ -24,4 +24,4 @@ for (match in 1:nrow(matches)) {
                          )
 }
 
-ggplot(entropy.diffs,aes(x=scorediff,y=entropydiff))+geom_point()
+ggplot(entropy.diffs,aes(x=entropydiff,y=scorediff))+geom_point()
