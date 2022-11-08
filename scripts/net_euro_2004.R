@@ -2,7 +2,7 @@ library(igraph)
 library(CINNA)
 
 adjacency_for_file <- function( file_name ) {
-  return(as.matrix(read.csv(data_file,row.names=1, check.names=FALSE, na.strings = "")))
+  return(as.matrix(read.csv(file_name,row.names=1, check.names=FALSE, na.strings = "")))
 }
 
 net_euro_2004 <- function( data_file ) {
