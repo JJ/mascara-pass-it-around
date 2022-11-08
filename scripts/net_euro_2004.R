@@ -15,3 +15,14 @@ net_euro_2004 <- function( data_file ) {
   V(net.2004.simplified)$bd <- V(net.2004.simplified)$diversity *  V(net.2004.simplified)$betweenness
   return(net.2004.simplified)  
 }
+
+tsallis <- function( adj_matrix, ratio ) {
+  pass.network <- c(adj_matrix)
+  total <- sum(pass.network)
+  normalized.pass.network <- pass.network/total
+  partial <- 0
+  for ( i in 1:length(normalized.pass.network)) {
+    partial <- partial - normalized.pass.network[i] ** ratio
+  }
+  return(1/(ratio-1)*(1 + partial))
+}
