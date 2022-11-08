@@ -6,13 +6,13 @@ francia,2,1,inglaterra
 dinamarca,0,0,italia-2
 suecia,5,0,bulgaria
 alemania,1,1,holanda
-chequia,2,1,letonia-3
+chequia,2,1,letonia
 grecia-2,1,1,spain-2
 rusia-2,0,2,portugal-2
 inglaterra-2,3,0,suiza-2
 croacia-2,2,2,francia-2
 bulgaria-2,0,2,dinamarca-2
-italia-3,1,1,suecia-2
+Italia-2,1,1,suecia-2
 letonia-2,0,0,alemania-2
 holanda-2,1,3,chequia-2
 spain-3,0,1,portugal-3
@@ -21,7 +21,7 @@ italia-3,2,1,bulgaria-3
 dinamarca-3,2,2,suecia-3
 holanda-3,3,0,letonia-3
 alemania-3,1,2,chequia-3
-portugal-4,,2,2,inglaterra-4
+portugal-4,2,2,inglaterra-4
 suecia-4,0,0,holanda-4
 chequia-4,3,0,dinamarca-4
 portugal-5,2,1,holanda-5
