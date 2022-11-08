@@ -248,6 +248,10 @@ In order to perform the analysis required by this paper, we needed to transform 
 
 This data was used in several technical reports and posters \cite{futbol2005,bundio2007exploraciones,redesvsredes}, applying for the first time, as far as we know, social network analysis to team sports.
 
+\subsection*{Euro 2008 dataset}
+
+This is a dataset that includes only the passes in Pajek's \texttt{.net} format. It was scraped from the web by the author, and stored in a LaunchPad and they GitHub repository. Unfortunately, just two files, for Spain and Germany during the final, have been kept. This match resulted in victory for Spain, 1-0, in a goal scored by Torres in the first half. This data is also stored and released with a free license in the repo for this paper.
+
 \subsection*{Spain in 2010 world cup dataset}
 
 This was data on several matches in which the Spanish national team intervened during 2010 world cup, including the final match where Spain scored a victory over the Netherlands. This data set was created by the authors of the \cite{network-analysis} paper, one of which is author of this one. It was collected \emph{manually} by watching the matches, and noting the minute, origin and target of every pass, and zone where it happened. It is thus much more detailed than the previous one, with a temporal dimension that is not present in the previous one. It was used in the aforementioned paper, which was one of the first papers that used the temporal dimension of the passes network, as well as the length of the "pass chains".
