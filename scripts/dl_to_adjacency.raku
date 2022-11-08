@@ -4,7 +4,7 @@ sub convert( $file ) {
     unless $file.IO.e { return };
     say $file;
     my @blocks = $file.IO.slurp(:enc("latin1")).split(/":"/);
-    my @rows = @blocks[1].split(/\s+/)[0..*-3].map: *.trim;
+    my @rows = @blocks[1].split(/\s+/)[1..*-2].map: *.trim;
     my @columns = @blocks[2].split(/\s+/)[1..*-2].map: *.trim;
 
     my $output =  " ," ~ @columns.join(",") ~ "\n";
@@ -21,10 +21,10 @@ sub convert( $file ) {
     spurt( "$file.csv", $output);
 
 }
-for <portugal> -> $pais {
-    convert("data/$pais.dl");
+for <spain-3> -> $pais {
+    convert("data/euro-2004/$pais.dl");
     for 2..6 {
-        convert( "data/$pais-$_.dl")
+        convert( "data/euro-2004/$pais-$_.dl")
     }
 }
 
