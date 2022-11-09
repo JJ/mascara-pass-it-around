@@ -14,6 +14,7 @@ ggplot(euro2004, aes(x=stage,y=tsallisEntropy,color=team))+geom_point()+ theme(a
 matches <- read.csv(paste0(PREFIX,"partidos.csv"))
 
 entropy.diffs <- data.frame(match=character(),scorediff=numeric(),entropydiff=numeric(),stage=character())
+score.df <- data.frame(match=character(),entropy=numeric(),goals=numeric())
 for (match in 1:nrow(matches)) {
   team1 <- matches[match,"Team1"]
   team2 <- matches[match,"Team2"]
@@ -27,7 +28,21 @@ for (match in 1:nrow(matches)) {
                                     scorediff=matches[match,"Goals1"]-matches[match,"Goals2"],
                                     entropydiff=entropy1-entropy2)
                          )
+  
+  if ( !is.na(entropy1)) {
+  score.df <- rbind( score.df, data.frame(match=team1,
+                                          entropy=entropy1,
+                                          goals=matches[match,"Goals1"]))
+  }
+  if ( !is.na(entropy2)) {
+  score.df <- rbind( score.df, data.frame(match=team2,
+                                          entropy=entropy2,
+                                          goals=matches[match,"Goals2"]))
+  }
 }
 
 ggplot(entropy.diffs[entropy.diffs$stage<=3,],aes(x=entropydiff,y=scorediff))+geom_point()
-
+median.entropy <- median(score.df$entropy)
+score.df$deltaEntropy <- abs(score.df$entropy - median.entropy)
+ggplot(score.df,aes(x=deltaEntropy,y=goals))+geom_point()
+glm(data=score.df, goals ~ deltaEntropy)
