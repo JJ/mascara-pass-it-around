@@ -206,7 +206,19 @@ Through time, one of the main tools that has been used to answer these two quest
 
 This is why, from the beginning of the analysis of soccer matches using social networks \cite{redesvsredes}, researchers have tried to come up with measurements that are meaningful in a intuitive way, and also have descriptive and predictive power, with an emphasis on the first. Lately, however, entropy \cite{entropy-extended,spatial-and-temporal-entropies,entropy-analysis,MERELO2022} has emerged as one of the best way to perform these dual functions, and at the same time be invariable enough to be able to describe teams across matches and competitions.
 
-In this paper, we will use data from competitions that date back to the early 2000s to study how entropy, and spread of entropy across a team during matches and competitions, is able to describe a team and, to a certain extent, predict if not the outcome of a game, at least the superiority of a team against another, which is often (but not always) correlated with victory.
+In this paper, we will use data from competitions that date back to the early 2000s to study how entropy, and spread of entropy across a team during matches and competitions, is able to describe a team and, to a certain extent, predict if not the outcome of a game, at least the superiority of a team against another, which is often (but not always) correlated with victory. In general, we will ask ourselves the following research questions:\begin{enumerate}
+\item[RQ1] Is some way of entropy able to describe the team behavior in a single measurement?
+\item[RQ2] Is some way of entropy correlated with any description of success in the game?
+\item[RQ3] Is team entropy constant, or adaptable in a predictable way?
+\end{enumerate}
+
+Depending on the answer to those questions, we will look at individual-level measures, including entropy, and how they correlate with each other and with victory or some measure of success (such as goals scored); we will be asking the following questions:\begin{enumerate}
+\item[RQ4] Is individual-level entropy able to describe the team in an invariant or predictably variant way?
+\item[RQ5] Is individual-level entropy in matches correlated or in some way related to outcome?
+\item[RQ5] Is any combination of entropy with other network-level measurements a better descriptor or predictor?
+\end{enumerate}
+
+Please take into account that we are differentiating here between \emph{descriptors}, that is, a quantity or measurement that matches the qualities or patterns that we can observe in plain sight, or see described in a summary of the game; \emph{correlation}, meaning that we find a statistical significant correlation between one quantity and others, and finally \emph{predictors}, meaning that we can, from one game to the next, predict using only what is known before the game starts. If a good descriptor is found to have good correlation and predictable variability, it might make a good predictor. We will try to shed some light into this subject, but in principle we are skeptical that such a thing is indeed possible.
 
 The rest of the paper is organized as follows: next we will examine the state of the art in the area of using social network analysis in soccer; this will be followed in Section \nameref{sec:mm} by an examination of the data used in this paper and how it's been obtained. Next (Section \nameref{sec:res}) we will analyze this data, first separately and then compare it between different competitions, if possible with the same team, focusing on the diverse performance of the Spanish selection in 2004 Euro cup and the 2010 world cup. Finally, we will discuss these results and expose our conclusions.
 
