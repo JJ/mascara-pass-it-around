@@ -1,3 +1,4 @@
+library(entropy)
 PREFIX <- "data/euro-2004/"
 TSALLIS_RATIO <- 0.2
 
