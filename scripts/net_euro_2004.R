@@ -29,5 +29,7 @@ tsallis <- function( adj_matrix, ratio ) {
   for ( i in 1:length(normalized.pass.network)) {
     partial <- partial - normalized.pass.network[i] ** ratio
   }
-  return(1/(ratio-1)*(1 + partial))
+  print(partial)
+  print((1 + partial)/(ratio -1))
+  return((1 + partial)/(ratio -1))
 }
