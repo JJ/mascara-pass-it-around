@@ -257,13 +257,23 @@ We will describe them next.
 
 \subsection*{Euro 2004 dataset}
 
+<<r rough, echo=F>>=
+PREFIX="../data/euro-2004/"
+load(paste0(PREFIX,"euro-2004.RData"))
+load(paste0(PREFIX,"euro-2004-betw-flow-diversity.RData"))
+load(paste0(PREFIX,"euro-2004-player.RData"))
+matches <- read.csv(paste0(PREFIX,"partidos.csv"))
+@
+
 The UEFA Euro 2004 competition was a soccer tournament that was held in Portugal during the summer 2004. It resulted in the striking win of Greece \cite{tzanelli2006impossible}, who beat Portugal, the hosting squad, 2 - 1. It was probably one of the first soccer tournament that published player and team-level statistics in their website, in the shape of CSV files that contained the adjacency matrix for the passes for every match and every team.
 
-That content was scraped by the author, converted to UCINET \cite{ucinet} format, and posted in the website for the Spanish Revista Redes \cite{redesvsredes}. The objective of this posting was a competition to predict the winner and 3 top teams in the competition. Several researchers, including the author, participated in that competition with completely wrong entries. Not even one of the four participants even included any of the two winners among the top four.
+That content was scraped by the author, converted to UCINET \cite{ucinet} format, and posted in the website for the Spanish Revista Redes \cite{redesvsredes}. The objective of this posting was a competition to predict the winner and 3 top teams in the competition. Several researchers, including the author, participated in that competition with completely wrong entries. Not even one of the four participants even included any of the two winners among the top four. The dataset consists in \Sexpr{length(matches$Team1)} games (excluding some games where one of the teams, or both, were not really kept), which include passes data for twice as many teams; the score was also scraped from public sites.
 
 In order to perform the analysis required by this paper, we needed to transform the data back to an adjacency matrix. Only 4 files in the original format were available; for the rest, a series of scripts were written to put them back in a format that can be understood by \texttt{igraph} \cite{csardi2006igraph}, the software we are using for this paper. These files are available from this repository, along with the original files as well as the scripts used to transform them. Some files were missing in the web site for unknown reasons, so they were simply ignored in the analysis. Differences with the file format and encoding were also eliminated, resulting eventually in a single RData file with all information. This file is available from the repository for this paper.
 
 This data was used in several technical reports and posters \cite{futbol2005,bundio2007exploraciones,redesvsredes}, applying for the first time, as far as we know, social network analysis to team sports. However, comparing the dataset with others such as the one shown in  \cite{spatial-and-temporal-entropies}, we can observe that the amount of passes is roughly one tenth of what is considered usual in professional matches (which is usually several hundreds). So it might be the case that this dataset is not really valid, or includes only a sample of the network, and not the whole network. This might explain some unusual patterns found in it.
+
+
 
 \subsection*{Euro 2008 dataset}
 
