@@ -5,18 +5,21 @@ source("scripts/net_euro_2004.R")
 
 matches <- read.csv(paste0(PREFIX,"partidos.csv"))
                     
-euro2004 <- data.frame(game=character(),entropy=numeric(),tsallisEntropy=numeric())
+euro2004 <- data.frame(game=character(),entropy=numeric(),tsallisEntropy=numeric(),passes=numeric())
 euro2004.nets <- list()
 bd.ranking <- data.frame(player = character(), team = character(), game = character(), bd = numeric(), entropy = numeric(), betweenness = numeric(),flow=numeric())
 for (i in c(matches$Team1,matches$Team2)) {
   file_name <- paste0(PREFIX,i,".dl.csv")
   this.net <- net_euro_2004( file_name )
   euro2004.nets[[i]] = this.net
-  
+  sum(E(this.net)$weight)
   tsallis.entropy <- tsallis( adjacency_for_file(file_name ), TSALLIS_RATIO )
+  print(sum(E(this.net)$weight))
   euro2004 <- rbind(euro2004,data.frame(game=i,
                                         entropy=entropy(E(this.net)$weight),
-                                        tsallisEntropy=tsallis.entropy))
+                                        tsallisEntropy=tsallis.entropy,
+                                        passes= sum(E(this.net)$weight))
+  )
   team <- strsplit(i, "-")[[1]][1]
   bd.ranking <- rbind(bd.ranking,
                       data.frame(player=V(this.net)$name,
