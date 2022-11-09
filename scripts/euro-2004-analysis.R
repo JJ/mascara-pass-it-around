@@ -14,7 +14,7 @@ ggplot(euro2004, aes(x=stage,y=tsallisEntropy,color=team))+geom_point()+ theme(a
 matches <- read.csv(paste0(PREFIX,"partidos.csv"))
 
 entropy.diffs <- data.frame(match=character(),scorediff=numeric(),entropydiff=numeric(),stage=character())
-score.df <- data.frame(match=character(),entropy=numeric(),goals=numeric())
+score.df <- data.frame(match=character(),entropy=numeric(),goals=numeric(),passes=numeric())
 for (match in 1:nrow(matches)) {
   team1 <- matches[match,"Team1"]
   team2 <- matches[match,"Team2"]
@@ -22,6 +22,9 @@ for (match in 1:nrow(matches)) {
 
   entropy1 <- unique(euro2004[euro2004$game==team1,]$tsallisEntropy)
   entropy2 <- unique(euro2004[euro2004$game==team2,]$tsallisEntropy)
+  passes1 <- unique(euro2004[euro2004$game==team1,]$passes)
+  passes2 <- unique(euro2004[euro2004$game==team2,]$passes)
+  
   entropy.diffs <- rbind(entropy.diffs,
                          data.frame(match=paste0(team1,"-",team2),
                                     stage=stage,
@@ -32,12 +35,14 @@ for (match in 1:nrow(matches)) {
   if ( !is.na(entropy1)) {
   score.df <- rbind( score.df, data.frame(match=team1,
                                           entropy=entropy1,
-                                          goals=matches[match,"Goals1"]))
+                                          goals=matches[match,"Goals1"],
+                                          passes=passes1))
   }
   if ( !is.na(entropy2)) {
   score.df <- rbind( score.df, data.frame(match=team2,
                                           entropy=entropy2,
-                                          goals=matches[match,"Goals2"]))
+                                          goals=matches[match,"Goals2"],
+                                          passes=passes2))
   }
 }
 
@@ -46,3 +51,4 @@ median.entropy <- median(score.df$entropy)
 score.df$deltaEntropy <- abs(score.df$entropy - median.entropy)
 ggplot(score.df,aes(x=deltaEntropy,y=goals))+geom_point()
 glm(data=score.df, goals ~ deltaEntropy)
+ggplot(score.df,aes(x=passes,y=entropy))+geom_point()
