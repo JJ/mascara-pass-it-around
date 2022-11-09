@@ -24,7 +24,9 @@ net_euro_2004 <- function( data_file ) {
 tsallis <- function( adj_matrix, ratio ) {
   pass.network <- c(adj_matrix)
   total <- sum(pass.network)
+  print(total)
   normalized.pass.network <- pass.network/total
+  print(pass.network/total)
   partial <- 0
   for ( i in 1:length(normalized.pass.network)) {
     partial <- partial - normalized.pass.network[i] ** ratio
