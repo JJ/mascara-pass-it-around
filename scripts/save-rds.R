@@ -13,9 +13,7 @@ for (i in c(matches$Team1,matches$Team2)) {
   file_name <- paste0(PREFIX,i,".dl.csv")
   this.net <- net_euro_2004( file_name )
   euro2004.nets[[i]] = this.net
-  sum(E(this.net)$weight)
   tsallis.entropy <- tsallis( adjacency_for_file(file_name ), TSALLIS_RATIO )
-  print(sum(E(this.net)$weight))
   euro2004 <- rbind(euro2004,data.frame(game=i,
                                         entropy=entropy(E(this.net)$weight),
                                         tsallisEntropy=tsallis.entropy,
@@ -33,6 +31,7 @@ for (i in c(matches$Team1,matches$Team2)) {
   )
 }
 
+euro2004$entropy.pass <- euro2004$tsallisEntropy / euro2004$passes
 save(euro2004.nets,file=paste0(PREFIX,"euro-2004.RData"))
 save(euro2004,file=paste0(PREFIX,"euro-2004-player.RData"))
 bd.ranking$fd <- bd.ranking$flow * bd.ranking$entropy
