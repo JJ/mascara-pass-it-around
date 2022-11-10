@@ -207,13 +207,13 @@ Through time, one of the main tools that has been used to answer these two quest
 This is why, from the beginning of the analysis of soccer matches using social networks \cite{redesvsredes}, researchers have tried to come up with measurements that are meaningful in a intuitive way, and also have descriptive and predictive power, with an emphasis on the first. Lately, however, entropy \cite{entropy-extended,spatial-and-temporal-entropies,entropy-analysis,MERELO2022} has emerged as one of the best way to perform these dual functions, and at the same time be invariable enough to be able to describe teams across matches and competitions. We need to consider, anyway, the limited reach of any description of the game based only on passes. Even if goal and scoring is always the effect of a chain of passes (leading to the shot, or else the foul or penalty that will be converted into goal), the overall game dynamics in football have four different phases: attack, defense, and transition to attack and to defense \cite{10.1371/journal.pone.0172565}. You are only passing if you are attacking or transitioning to attack; however, quite obviously defense and changing gear to defend are also essential, especially from the point of view of conceding goals and maintaining possession. We are conscious, then, than passes will reflect, describe a predict a part of the game. It remains to be seen how useful it is in every one of those endeavors.
 
 In this paper, we will use data from competitions that date back to the early 2000s to study how entropy, and spread of entropy across a team during matches and competitions, is able to describe a team and, to a certain extent, predict if not the outcome of a game, at least the superiority of a team against another, which is often (but not always) correlated with victory. In general, we will ask ourselves the following research questions:\begin{enumerate}
-\item[RQ1] Is some way of entropy able to describe the team behavior in a single measurement?
-\item[RQ2] Is some way of entropy correlated with any description of success in the game?
+\item[RQ1] Is some type of entropy able to describe the team behavior in a single measurement?
+\item[RQ2] Is some type of entropy correlated with any description of success in the game?
 \item[RQ3] Is team entropy constant, or adaptable in a predictable way?
 \end{enumerate}
 
 Depending on the answer to those questions, we will look at individual-level measures, including entropy, and how they correlate with each other and with victory or some measure of success (such as goals scored); we will be asking the following questions:\begin{enumerate}
-\item[RQ4] Is individual-level entropy able to describe the team in an invariant or predictably variant way?
+\item[RQ4] Is individual-level entropy (in some form) able to describe the team in an invariant or predictably variant way?
 \item[RQ5] Is individual-level entropy in matches correlated or in some way related to outcome?
 \item[RQ5] Is any combination of entropy with other network-level measurements a better descriptor or predictor?
 \end{enumerate}
